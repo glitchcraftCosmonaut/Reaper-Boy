@@ -6,7 +6,6 @@ public class PlayerGroundedState : PlayerState
 {
     protected int xInput;
     protected int yInput;
-    protected Vector2 moveDirection;
     private bool JumpInput;
     private bool isGrounded;
 
@@ -24,6 +23,7 @@ public class PlayerGroundedState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.JumpState.ResetAmountOfJumpsLeft();
         
     }
 
@@ -36,6 +36,18 @@ public class PlayerGroundedState : PlayerState
         base.LogicUpdate();
         xInput = player.input.NormInputX;
         yInput = player.input.NormInputY;
+        JumpInput = player.input.JumpInput;
+
+
+        if (JumpInput && player.JumpState.CanJump())
+        {
+            stateMachine.ChangeState(player.JumpState);
+        }
+        else if (!isGrounded)
+        {
+            player.InAirState.StartCoyoteTime();
+            stateMachine.ChangeState(player.InAirState);
+        }
     }
 
     public override void PhysicsUpdate()

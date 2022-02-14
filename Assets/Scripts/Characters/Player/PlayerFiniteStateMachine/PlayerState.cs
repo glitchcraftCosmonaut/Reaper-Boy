@@ -27,10 +27,10 @@ public class PlayerState
         core = player.Core;
     }
 
-    public virtual void OnEnable()
-    {
-        Enter();
-    }
+    // public virtual void OnEnable()
+    // {
+    //     Enter();
+    // }
 
     public virtual void Enter()
     {

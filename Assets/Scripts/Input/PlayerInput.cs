@@ -15,6 +15,9 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
     public bool JumpInputStop { get; private set; }
     // public event UnityAction onJump = delegate {};
 
+    private float inputHoldTime = 0.2f;
+    private float jumpInputStartTime;
+
     InputActions inputActions;
 
     private void OnEnable()
@@ -26,6 +29,11 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
     private void OnDisable()
     {
         DisableAllInputs();
+    }
+
+    private void Update()
+    {
+        CheckJumpInputHoldTime();
     }
 
     public void DisableAllInputs()
@@ -51,9 +59,25 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        // if(context.performed)
-        // {
-        //     onJump.Invoke();
-        // }
+        if(context.started)
+        {
+            JumpInput = true;
+            JumpInputStop = false;
+            jumpInputStartTime = Time.time;
+        }
+        if(context.canceled)
+        {
+            JumpInputStop = true;
+        }
+    }
+
+    public void UseJumpInput() => JumpInput = false;
+
+    private void CheckJumpInputHoldTime()
+    {
+        if(Time.time >= jumpInputStartTime + inputHoldTime)
+        {
+            JumpInput = false;
+        }
     }
 }
