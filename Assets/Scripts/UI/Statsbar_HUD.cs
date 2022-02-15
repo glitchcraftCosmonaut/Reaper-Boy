@@ -5,16 +5,19 @@ using UnityEngine.UI;
 public class Statsbar_HUD : Statsbar
 {
     [SerializeField] protected Text percentText;
+    // [SerializeField] protected FloatValueSO maxHealth;
+
+   
     
     protected virtual void SetPercentText()
     {
-        percentText.text = Mathf.RoundToInt(targetFillAmount * 100f) + "%";
-        // percentText.text = targetFillAmount.ToString("P0");
+        // percentText.text = Mathf.RoundToInt(targetFillAmount * 100f) + "%";
+        percentText.text = targetFillAmount.ToString("P0");
     }
 
-    public override void Initialize(float currentValue, float maxValue)
+    public override void Initialize(float currentValue)
     {
-        base.Initialize(currentValue, maxValue);
+        base.Initialize(currentValue);
         SetPercentText();
     }
 

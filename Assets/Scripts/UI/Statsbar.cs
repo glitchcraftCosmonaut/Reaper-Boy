@@ -14,6 +14,9 @@ public class Statsbar : MonoBehaviour
     float previousFillAmount;
     float t;
 
+    [SerializeField] protected FloatValueSO currentHealth;
+
+
     WaitForSeconds waitForDelayFill;
 
     Coroutine bufferedFillCoroutine;
@@ -29,17 +32,29 @@ public class Statsbar : MonoBehaviour
         waitForDelayFill = new WaitForSeconds(fillDelay);
     }
 
-    public virtual void Initialize(float currentValue, float maxValue)
+     private void OnEnable()
     {
-        currentFillAmount = currentValue / maxValue;
+        // currentHealth.OnValueChange += Initialize;
+        currentHealth.OnValueChange += UpdateStates;
+    }
+
+    private void OnDisable()
+    {
+        // currentHealth.OnValueChange -= Initialize;
+        currentHealth.OnValueChange -= UpdateStates;
+    }
+
+    public virtual void Initialize(float currentValue)
+    {
+        currentFillAmount = currentHealth.Value;
         targetFillAmount = currentFillAmount;
         fillImageBack.fillAmount = currentFillAmount;
         fillImageFront.fillAmount = currentFillAmount;
     }
 
-    public void UpdateStates(float currentValue, float maxValue)
+    public void UpdateStates(float currentValue)
     {
-        targetFillAmount = currentValue / maxValue;
+        targetFillAmount = currentHealth.Value;
 
         if(bufferedFillCoroutine != null)
         {

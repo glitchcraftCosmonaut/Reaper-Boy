@@ -13,6 +13,7 @@ public class Player : Character
     public PlayerJumpState JumpState { get; private set; }
     public PlayerInAirState InAirState { get; private set; }
     public PlayerLandState LandState {get; private set; }
+    public PlayerDashState DashState {get; private set; }
 
     #endregion
 
@@ -24,6 +25,7 @@ public class Player : Character
 
     [SerializeField] public PlayerInput input;
     [SerializeField] private PlayerData playerData;
+    [SerializeField] private PlayerDashData playerDashData;
 
     public Rigidbody2D RB { get; private set; }
 
@@ -41,6 +43,8 @@ public class Player : Character
         JumpState = new PlayerJumpState(this,StateMachine,playerData,"InAir");
         InAirState = new PlayerInAirState(this,StateMachine,playerData,"InAir");
         LandState = new PlayerLandState(this, StateMachine, playerData, "Land");
+        DashState = new PlayerDashState(this, StateMachine, playerDashData, "InAir");
+        
     }
     private void Start()
     {
@@ -65,21 +69,4 @@ public class Player : Character
 
     private void AnimtionFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
 
-    // protected override void OnEnable()
-    // {
-    //     base.OnEnable();
-    //     Core = GetComponentInChildren<Core>();
-    //     input.onMove += Move;    
-
-    // }
-
-    // private void OnDisable()
-    // {
-    //     input.onMove -= Move;
-    // }
-    // void Move(Vector2  moveInput)
-    // {
-    //     moveDirection = moveInput.normalized;
-    //     Debug.Log(moveDirection);
-    // }
 }

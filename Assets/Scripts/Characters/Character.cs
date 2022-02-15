@@ -6,18 +6,18 @@ public class Character : MonoBehaviour
 {
     [Header("HEALTH SYSTEM")]
     [SerializeField] protected float maxHealth;
-    protected float health;
+    [SerializeField] protected FloatValueSO health;
 
     protected virtual void OnEnable()
     {
-        health = maxHealth;
+        health.Value = maxHealth;
     }
     public virtual void TakeDamage(float damage)
     {
-        if(health == 0f) return;
+        if(health.Value == 0f) return;
         // StartCoroutine(HurtEffect());
-        health -= damage;
-        if(health <= 0)
+        health.Value -= damage / maxHealth;
+        if(health.Value <= 0)
         {
             Die();
         }
@@ -26,7 +26,7 @@ public class Character : MonoBehaviour
 
      public virtual void Die()
     {
-        health = 0;
+        health.Value = 0;
         // AudioManager.Instance.PlayRandomSFX(deathSFX);
         // PoolManager.Release(deathVFX, transform.position);
         gameObject.SetActive(false);
@@ -34,15 +34,15 @@ public class Character : MonoBehaviour
 
     public virtual void RestoreHealth(float value)
     {
-        if(health == maxHealth) return;
+        if(health.Value == maxHealth) return;
         // health += value;
         // health = Mathf.Clamp(health, 0f, maxHealth);
-        health = Mathf.Clamp(health + value, 0f, maxHealth);
+        health.Value = Mathf.Clamp(health.Value + value, 0f, maxHealth);
     }
 
     protected IEnumerator HealthRegenerationCoroutine(WaitForSeconds waitTime, float percent)
     {
-        while(health < maxHealth)
+        while(health.Value < maxHealth)
         {
             yield return waitTime;
 
@@ -52,7 +52,7 @@ public class Character : MonoBehaviour
 
     protected IEnumerator DamageOverTimeCoroutine(WaitForSeconds waitTime, float percent)
     {
-        while(health > 0f)
+        while(health.Value > 0f)
         {
             yield return waitTime;
 

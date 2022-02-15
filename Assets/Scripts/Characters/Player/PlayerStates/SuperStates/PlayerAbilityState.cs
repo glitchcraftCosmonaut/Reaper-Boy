@@ -5,6 +5,10 @@ public class PlayerAbilityState : PlayerState
     public PlayerAbilityState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
+    public PlayerAbilityState(Player player, PlayerStateMachine stateMachine, PlayerDashData playerDashData, string animBoolName) : base(player, stateMachine, playerDashData, animBoolName)
+    {
+    }
+    
 
     public override void DoChecks()
     {
