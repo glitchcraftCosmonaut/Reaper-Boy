@@ -5,18 +5,23 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [Header("HEALTH SYSTEM")]
-    [SerializeField] protected float maxHealth;
+    [SerializeField] protected FloatValueSO maxHealth;
     [SerializeField] protected FloatValueSO health;
 
     protected virtual void OnEnable()
     {
-        health.Value = maxHealth;
+        health.Value = maxHealth.Value;
+        // health.Value = 1;
     }
-    public virtual void TakeDamage(float damage)
+    // private void Start()
+    // {
+    //     health.Value = 1;
+    // }
+    public virtual void TakeDamage(int damage)
     {
         if(health.Value == 0f) return;
         // StartCoroutine(HurtEffect());
-        health.Value -= damage / maxHealth;
+        health.Value -= damage / maxHealth.Value;
         if(health.Value <= 0)
         {
             Die();
@@ -32,32 +37,32 @@ public class Character : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public virtual void RestoreHealth(float value)
+    public virtual void RestoreHealth(int value)
     {
-        if(health.Value == maxHealth) return;
+        if(health.Value == maxHealth.Value) return;
         // health += value;
         // health = Mathf.Clamp(health, 0f, maxHealth);
-        health.Value = Mathf.Clamp(health.Value + value, 0f, maxHealth);
+        health.Value = Mathf.Clamp(health.Value + value, 0f, maxHealth.Value);
     }
 
-    protected IEnumerator HealthRegenerationCoroutine(WaitForSeconds waitTime, float percent)
-    {
-        while(health.Value < maxHealth)
-        {
-            yield return waitTime;
+    // protected IEnumerator HealthRegenerationCoroutine(WaitForSeconds waitTime, int percent)
+    // {
+    //     while(health.Value < maxHealth.Value)
+    //     {
+    //         yield return waitTime;
 
-            RestoreHealth(maxHealth * percent);
-        }
-    }
+    //         RestoreHealth(maxHealth.Value * percent);
+    //     }
+    // }
 
-    protected IEnumerator DamageOverTimeCoroutine(WaitForSeconds waitTime, float percent)
-    {
-        while(health.Value > 0f)
-        {
-            yield return waitTime;
+    // protected IEnumerator DamageOverTimeCoroutine(WaitForSeconds waitTime, int percent)
+    // {
+    //     while(health.Value > 0f)
+    //     {
+    //         yield return waitTime;
 
-            TakeDamage(maxHealth * percent);
-        }
-    }
+    //         TakeDamage(maxHealth.Value * percent);
+    //     }
+    // }
 
 }

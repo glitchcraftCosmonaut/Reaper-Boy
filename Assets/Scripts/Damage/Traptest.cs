@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Traptest : MonoBehaviour
 {
-    [SerializeField] private LayerMask hittable;
+        [SerializeField] private LayerMask hittable;
         [SerializeField] private int damage = 20;
 
         private void DestroyThrowable()
@@ -17,12 +17,11 @@ public class Traptest : MonoBehaviour
         {
             if ((hittable & 1 << other.gameObject.layer) != 0)
             {
-                Player player = other.GetComponent<Player>();
-                if (player)
+                // Player player = other.TryGetComponent<Player>(out Player player);
+                if(other.TryGetComponent<Player>(out Player player))
                 {
                     player.TakeDamage(damage);
                 }
-
                 DestroyThrowable();
             }
         }

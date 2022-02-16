@@ -13,6 +13,7 @@ public class PlayerDashState : PlayerAbilityState
     private Vector2 lastAIPos;
     public PlayerDashState(Player player, PlayerStateMachine stateMachine, PlayerDashData playerDashData, string animBoolName) : base(player, stateMachine, playerDashData, animBoolName)
     {
+        // hasDash = playerDashData.isHasDash;
     }
 
     public override void Enter()
@@ -24,7 +25,6 @@ public class PlayerDashState : PlayerAbilityState
 
         isHolding = true;
         dashDirection = Vector2.right * core.Movement.FacingDirection;
-
         // Time.timeScale = playerDashData.holdTimeScale;
         // startTime = Time.unscaledTime;
 
@@ -110,7 +110,7 @@ public class PlayerDashState : PlayerAbilityState
 
     public bool CheckIfCanDash()
     {
-        return CanDash && Time.time >= lastDashTime + playerDashData.dashCooldown;
+        return CanDash && playerDashData.hasDash && Time.time >= lastDashTime + playerDashData.dashCooldown;
     }
 
     public void ResetCanDash() => CanDash = true;

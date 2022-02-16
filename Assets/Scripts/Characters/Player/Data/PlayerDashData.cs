@@ -12,4 +12,5 @@ public class PlayerDashData : ScriptableObject
     public float drag = 10f;
     public float dashEndYMultiplier = 0.2f;
     public float distBetweenAfterImages = 0.5f;
+    public bool hasDash;
 }

@@ -15,6 +15,7 @@ public class Statsbar : MonoBehaviour
     float t;
 
     [SerializeField] protected FloatValueSO currentHealth;
+    [SerializeField] protected FloatValueSO maxHealth;
 
 
     WaitForSeconds waitForDelayFill;
@@ -24,6 +25,8 @@ public class Statsbar : MonoBehaviour
 
     private void Awake() 
     {
+        // currentFillAmount = currentHealth.Value / maxHealth.Value;
+        Initialize();
         if(TryGetComponent<Canvas>(out Canvas canvas))
         {
             canvas.worldCamera = Camera.main;
@@ -44,17 +47,17 @@ public class Statsbar : MonoBehaviour
         currentHealth.OnValueChange -= UpdateStates;
     }
 
-    public virtual void Initialize(float currentValue)
+    public virtual void Initialize()
     {
-        currentFillAmount = currentHealth.Value;
+        currentFillAmount = currentHealth.Value / maxHealth.Value;
         targetFillAmount = currentFillAmount;
         fillImageBack.fillAmount = currentFillAmount;
         fillImageFront.fillAmount = currentFillAmount;
     }
 
-    public void UpdateStates(float currentValue)
+    public virtual void UpdateStates(float currentValue)
     {
-        targetFillAmount = currentHealth.Value;
+        targetFillAmount = currentValue / maxHealth.Value;
 
         if(bufferedFillCoroutine != null)
         {
