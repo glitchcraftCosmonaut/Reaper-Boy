@@ -13,7 +13,6 @@ public class PlayerDashState : PlayerAbilityState
     private Vector2 lastAIPos;
     public PlayerDashState(Player player, PlayerStateMachine stateMachine, PlayerDashData playerDashData, string animBoolName) : base(player, stateMachine, playerDashData, animBoolName)
     {
-        // hasDash = playerDashData.isHasDash;
     }
 
     public override void Enter()

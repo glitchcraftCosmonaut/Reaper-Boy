@@ -6,12 +6,14 @@ public class PlayerStateMachine
 {
     public PlayerState CurrentState { get; private set; }
 
+    //TO init the state when first load scene
     public void Initialize(PlayerState startingState)
     {
         CurrentState = startingState;
         CurrentState.Enter();
     }
-
+    
+    //TO change the state when player has input
     public void ChangeState(PlayerState newState)
     {
         CurrentState.Exit();
