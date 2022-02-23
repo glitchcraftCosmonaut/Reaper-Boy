@@ -7,6 +7,7 @@ public class EnemyBehaviourData : ScriptableObject
 {
     // public Transform target;
     public float attackDistance;
+    public float attackDamage;
     public float moveSpeed;
     public float timer;
     public bool inRange; // check if player in range

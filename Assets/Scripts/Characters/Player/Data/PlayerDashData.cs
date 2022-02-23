@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="newPlayerData", menuName ="Data/Player Data/Dash Data")]
+[CreateAssetMenu(fileName ="newPlayerDashData", menuName ="Data/Player Data/Dash Data")]
 public class PlayerDashData : ScriptableObject
 {
     [Header("Dash State")]

@@ -13,7 +13,7 @@ public class Character : MonoBehaviour
         health.Value = maxHealth.Value;
         // health.Value = 1;
     }
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(float damage)
     {
         if(health.Value == 0f) return;
         // StartCoroutine(HurtEffect());

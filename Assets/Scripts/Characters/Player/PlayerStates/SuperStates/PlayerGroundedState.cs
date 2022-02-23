@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerInput;
 
 public class PlayerGroundedState : PlayerState
 {
@@ -43,7 +44,10 @@ public class PlayerGroundedState : PlayerState
         dashInput = player.input.DashInput;
 
 
-
+        if (player.input.AttackInputs[(int)CombatInputs.primary])
+        {
+            stateMachine.ChangeState(player.PrimaryAttackState);
+        }
         if (JumpInput && player.JumpState.CanJump())
         {
             stateMachine.ChangeState(player.JumpState);

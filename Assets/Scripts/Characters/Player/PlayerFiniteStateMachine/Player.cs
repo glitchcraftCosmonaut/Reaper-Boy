@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerInput;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : Character
@@ -14,21 +15,31 @@ public class Player : Character
     public PlayerInAirState InAirState { get; private set; }
     public PlayerLandState LandState {get; private set; }
     public PlayerDashState DashState {get; private set; }
+    public PlayerAttackState PrimaryAttackState { get; private set; }
+    public PlayerAttackState SecondaryAttackState { get; private set; }
 
     #endregion
 
+    #region Setter and Getter
     public Core Core { get; private set; }
     public Animator Anim { get; private set; }
-
     public BoxCollider2D MovementCollider { get; private set; }
+    #endregion
 
-
+    #region Scriptable object properties
     [SerializeField] public PlayerInput input;
     [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerDashData playerDashData;
 
-    public Rigidbody2D RB { get; private set; }
+    [SerializeField] private EnemyBehaviourData enemyData;
+    #endregion
 
+    #region properties
+    public Vector2 knockbackAngle;
+    public float knockbackStrength;
+    public Rigidbody2D RB { get; private set; }
+    public Weapon[] weapons;
+    #endregion
 
     Vector2 moveDirection;
 
@@ -44,6 +55,8 @@ public class Player : Character
         InAirState = new PlayerInAirState(this,StateMachine,playerData,"InAir");
         LandState = new PlayerLandState(this, StateMachine, playerData, "Land");
         DashState = new PlayerDashState(this, StateMachine, playerDashData, "InAir");
+        PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+        SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         
     }
     private void Start()
@@ -52,6 +65,7 @@ public class Player : Character
         Anim = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>();
         MovementCollider = GetComponent<BoxCollider2D>();
+        PrimaryAttackState.SetWeapon(weapons[(int)CombatInputs.primary]);
         StateMachine.Initialize(IdleState); 
     }
 
@@ -64,9 +78,17 @@ public class Player : Character
     {
         StateMachine.CurrentState.PhysicsUpdate();
     }
+    public override void TakeDamage(float damage)
+    {
+        //this is work but improve this soon maybe
+        base.TakeDamage(enemyData.attackDamage);
+        IKnockbackable knockbackable = GetComponentInChildren<IKnockbackable>();
+        knockbackable.Knockback(knockbackAngle, knockbackStrength, Core.Movement.FacingDirection * -1);       
+    }
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
 
     private void AnimtionFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
+
 
 }

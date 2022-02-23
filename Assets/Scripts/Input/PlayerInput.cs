@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using System;
 
 [CreateAssetMenu(menuName = "Player Input")]
 public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
@@ -17,6 +18,8 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
     public bool JumpInputStop { get; private set; }
     public bool DashInput { get; private set; }
     public bool DashInputStop { get; private set; }
+    public bool[] AttackInputs { get; private set; }
+
 
 #endregion
 
@@ -25,6 +28,9 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
     private float jumpInputStartTime;
     private float dashInputStartTime;
     InputActions inputActions;
+    public CombatInputs combatInputs;
+    // public int primary;
+    // public int secondary;
 #endregion
 
 #region UNITY MONOBEHAVIOR
@@ -33,6 +39,9 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
         inputActions = new InputActions();
 
         inputActions.Gameplay.SetCallbacks(this);
+
+        int count = Enum.GetValues(typeof(CombatInputs)).Length;
+        AttackInputs = new bool[count];
     }
     private void OnDisable()
     {
@@ -124,5 +133,39 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
         }
     }
 
+
+    #endregion
+
+#region ATTACK INPUT
+    public void OnPrimaryAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            AttackInputs[(int)CombatInputs.primary] = true;
+        }
+
+        if (context.canceled)
+        {
+            AttackInputs[(int)CombatInputs.primary] = false;
+        }
+    }
+
+    public void OnSecondaryAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            AttackInputs[(int)CombatInputs.secondary] = true;
+        }
+
+        if (context.canceled)
+        {
+            AttackInputs[(int)CombatInputs.secondary] = false;
+        }
+    }
+    public enum CombatInputs
+    {
+        primary,
+        secondary
+    }
 #endregion
 }

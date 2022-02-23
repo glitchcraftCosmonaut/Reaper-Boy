@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Behaviour : Character
+public class Enemy_Behaviour : Character, IDamageable
 {
     public EnemyBehaviourData enemyData;
+    public EnemyAttackData enemyAttackData;
     public Transform leftLimit;
     public Transform rightLimit;
     public GameObject hotZone;
@@ -18,6 +19,8 @@ public class Enemy_Behaviour : Character
     private bool attackMode;
     private bool cooling; // check if enemy is cooling after attack
     private float intTimer; // initial timer
+
+
 
     private void Awake()
     {
@@ -137,5 +140,11 @@ public class Enemy_Behaviour : Character
             rotation.y = 180;
         }
         transform.eulerAngles = rotation;
+    }
+
+    public void Damage(float amount)
+    {
+        Debug.Log(amount + " Damage taken");
+        Destroy(gameObject);
     }
 }

@@ -16,8 +16,8 @@ TagManager:
   - Player
   - Ground
   - Enemy
-  - 
-  - 
+  - Weapon
+  - Damagable
   - 
   - 
   - 
@@ -48,6 +48,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2046175131
+    locked: 0
+  - name: Enemy
+    uniqueID: 3338685063
     locked: 0
   - name: Player
     uniqueID: 2706342001

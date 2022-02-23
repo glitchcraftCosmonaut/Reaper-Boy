@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be19a1533b99bf40b013cafc21bffb9, type: 3}
   m_Name: Demon
   m_EditorClassIdentifier: 
-  raycastMask:
-    serializedVersion: 2
-    m_Bits: 64
-  raycastLength: 4
   attackDistance: 3
+  attackDamage: 20
   moveSpeed: 2
   timer: 2
+  inRange: 0
