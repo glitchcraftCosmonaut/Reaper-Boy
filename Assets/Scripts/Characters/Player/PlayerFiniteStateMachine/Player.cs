@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static PlayerInput;
 
@@ -27,6 +25,7 @@ public class Player : Character
     #endregion
 
     #region Scriptable object properties
+    [Header("===PLAYER DATA===")]
     [SerializeField] public PlayerInput input;
     [SerializeField] private PlayerData playerData;
     [SerializeField] private PlayerDashData playerDashData;
@@ -46,6 +45,8 @@ public class Player : Character
     private void Awake()
     {
         Core = GetComponentInChildren<Core>();
+        sp = GetComponent<SpriteRenderer>();
+        defaultMat2D = GetComponent<SpriteRenderer>().material;
 
         StateMachine = new PlayerStateMachine();
 

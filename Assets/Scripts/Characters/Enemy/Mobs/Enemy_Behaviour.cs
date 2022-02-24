@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_Behaviour : Character, IDamageable
 {
     public EnemyBehaviourData enemyData;
-    public EnemyAttackData enemyAttackData;
     public Transform leftLimit;
     public Transform rightLimit;
     public GameObject hotZone;
@@ -27,6 +24,8 @@ public class Enemy_Behaviour : Character, IDamageable
         SelectTarget();
         intTimer = enemyData.timer;
         anim = GetComponent<Animator>();
+        sp = GetComponentInChildren<SpriteRenderer>();
+        defaultMat2D = GetComponentInChildren<SpriteRenderer>().material;
     }
 
     private void Update()
@@ -142,9 +141,10 @@ public class Enemy_Behaviour : Character, IDamageable
         transform.eulerAngles = rotation;
     }
 
+
     public void Damage(float amount)
     {
         Debug.Log(amount + " Damage taken");
-        Destroy(gameObject);
+        TakeDamage(amount);
     }
 }

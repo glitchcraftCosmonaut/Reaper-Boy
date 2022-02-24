@@ -18,7 +18,7 @@ TagManager:
   - Enemy
   - Weapon
   - Damagable
-  - 
+  - Collectibles
   - 
   - 
   - 
@@ -57,4 +57,7 @@ TagManager:
     locked: 0
   - name: Trap
     uniqueID: 2705183353
+    locked: 0
+  - name: Collectibles
+    uniqueID: 538365109
     locked: 0

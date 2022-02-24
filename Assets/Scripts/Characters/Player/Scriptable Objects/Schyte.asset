@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDetails:
   - attackName: Combo 1
-    movementSpeed: 3
+    movementSpeed: 2
     damageAmount: 20
   - attackName: Combo 2
-    movementSpeed: 4
+    movementSpeed: 2
     damageAmount: 20
   - attackName: Combo 3
-    movementSpeed: 4
+    movementSpeed: 2
     damageAmount: 20

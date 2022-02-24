@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    //pool manager here
+    
     [Header("HEALTH SYSTEM")]
     [SerializeField] protected FloatValueSO maxHealth;
     [SerializeField] protected FloatValueSO health;
+
+    [Header("HURT EFFECT")]
+    [SerializeField] protected Material hurtMat;
+    protected SpriteRenderer sp;
+    protected Material defaultMat2D;
 
     protected virtual void OnEnable()
     {
@@ -16,7 +23,7 @@ public class Character : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         if(health.Value == 0f) return;
-        // StartCoroutine(HurtEffect());
+        StartCoroutine(HurtEffect());
         health.Value -= damage / maxHealth.Value;
         if(health.Value <= 0)
         {
@@ -60,5 +67,12 @@ public class Character : MonoBehaviour
     //         TakeDamage(maxHealth.Value * percent);
     //     }
     // }
+
+    IEnumerator HurtEffect()
+    {
+        sp.material = hurtMat;
+        yield return new WaitForSeconds(0.1f);
+        sp.material = defaultMat2D;
+    }
 
 }
