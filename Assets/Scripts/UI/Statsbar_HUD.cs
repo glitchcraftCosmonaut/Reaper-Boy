@@ -14,11 +14,11 @@ public class Statsbar_HUD : Statsbar
         // percentText.text = targetFillAmount.ToString("P0");
     }
 
-    // public override void Initialize(float currentValue)
-    // {
-    //     base.Initialize(currentValue);
-    //     SetPercentText();
-    // }
+    public override void Initialize(float currentValue)
+    {
+        base.Initialize(currentHealth.Value);
+        SetPercentText();
+    }
     // public override void UpdateStates(float currentValue)
     // {
     //     base.UpdateStates(currentValue);

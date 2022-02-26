@@ -60,6 +60,7 @@ public class Player : Character
         SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         
     }
+    
     private void Start()
     {
         input.EnableGameplayInput();

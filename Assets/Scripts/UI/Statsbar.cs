@@ -26,7 +26,7 @@ public class Statsbar : MonoBehaviour
     private void Awake() 
     {
         // currentFillAmount = currentHealth.Value / maxHealth.Value;
-        Initialize();
+        Initialize(currentHealth.Value);
         if(TryGetComponent<Canvas>(out Canvas canvas))
         {
             canvas.worldCamera = Camera.main;
@@ -47,9 +47,10 @@ public class Statsbar : MonoBehaviour
         currentHealth.OnValueChange -= UpdateStates;
     }
 
-    public virtual void Initialize()
+    public virtual void Initialize(float currentValue)
     {
-        currentFillAmount = currentHealth.Value / maxHealth.Value;
+        currentValue = currentHealth.Value;
+        currentFillAmount = currentValue / maxHealth.Value;
         targetFillAmount = currentFillAmount;
         fillImageBack.fillAmount = currentFillAmount;
         fillImageFront.fillAmount = currentFillAmount;

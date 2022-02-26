@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SingletonScriptableObject<T> : ScriptableObject where T : SingletonScriptableObject<T>
