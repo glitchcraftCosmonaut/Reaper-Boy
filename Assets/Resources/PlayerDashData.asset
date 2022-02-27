@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb13261425689e743b45cc02718afa68, type: 3}
   m_Name: PlayerDashData
   m_EditorClassIdentifier: 
+  objectName: Dash
   dashCooldown: 0.5
   maxHoldTime: 1
   holdTimeScale: 0.25

@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
 
     protected virtual void OnEnable()
     {
+        //debug
         health.Value = maxHealth.Value;
         // health.Value = 1;
     }

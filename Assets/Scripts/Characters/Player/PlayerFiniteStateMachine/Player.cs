@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static PlayerInput;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -27,8 +28,8 @@ public class Player : Character
     #region Scriptable object properties
     [Header("===PLAYER DATA===")]
     [SerializeField] public PlayerInput input;
-    [SerializeField] private PlayerData playerData;
-    [SerializeField] private PlayerDashData playerDashData;
+    [SerializeField] public PlayerData playerData;
+    [SerializeField] public PlayerDashData playerDashData;
 
     [SerializeField] private EnemyBehaviourData enemyData;
     #endregion
@@ -38,9 +39,22 @@ public class Player : Character
     public float knockbackStrength;
     public Rigidbody2D RB { get; private set; }
     public Weapon[] weapons;
+    public bool hasDash;
     #endregion
 
     Vector2 moveDirection;
+    public static Player instance;
+    public static Player MyInstance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                instance = FindObjectOfType<Player>();
+            }
+            return instance;
+        }
+    }
 
     private void Awake()
     {
@@ -63,6 +77,8 @@ public class Player : Character
     
     private void Start()
     {
+        // name = playerDashData.objectName;
+        playerDashData.hasDash = hasDash;
         input.EnableGameplayInput();
         Anim = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>();

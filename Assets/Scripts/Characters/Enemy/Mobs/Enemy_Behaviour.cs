@@ -19,8 +19,9 @@ public class Enemy_Behaviour : Character, IDamageable
 
 
 
-    private void Awake()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         SelectTarget();
         intTimer = enemyData.timer;
         anim = GetComponent<Animator>();

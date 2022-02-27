@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerDashData : ScriptableObject
 {
     [Header("Dash State")]
+    public string objectName;
     public float dashCooldown = 0.5f;
     public float maxHoldTime = 1f;
     public float holdTimeScale = 0.25f;
@@ -12,5 +13,5 @@ public class PlayerDashData : ScriptableObject
     public float drag = 10f;
     public float dashEndYMultiplier = 0.2f;
     public float distBetweenAfterImages = 0.5f;
-    static public bool hasDash;
+    public bool hasDash;
 }
