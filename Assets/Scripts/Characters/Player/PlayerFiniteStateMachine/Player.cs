@@ -39,7 +39,9 @@ public class Player : Character
     public float knockbackStrength;
     public Rigidbody2D RB { get; private set; }
     public Weapon[] weapons;
-    public bool hasDash;
+    public bool hasDash = false;
+    public Scene sceneName;
+    public string stageName;
     #endregion
 
     Vector2 moveDirection;
@@ -58,12 +60,14 @@ public class Player : Character
 
     private void Awake()
     {
+
         Core = GetComponentInChildren<Core>();
         sp = GetComponent<SpriteRenderer>();
         defaultMat2D = GetComponent<SpriteRenderer>().material;
-
+        // stageNum = SceneManager.GetActiveScene().buildIndex;
+        stageName = SceneManager.GetActiveScene().name;
+        Debug.Log(stageName);
         StateMachine = new PlayerStateMachine();
-
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "Idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "Move");
         JumpState = new PlayerJumpState(this,StateMachine,playerData,"InAir");
@@ -77,9 +81,10 @@ public class Player : Character
     
     private void Start()
     {
-        // name = playerDashData.objectName;
-        playerDashData.hasDash = hasDash;
+        // name = playerDashData.objectName; 
+        sceneName = SceneManager.GetSceneByName(stageName);
         input.EnableGameplayInput();
+        playerDashData.hasDash = hasDash;
         Anim = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>();
         MovementCollider = GetComponent<BoxCollider2D>();

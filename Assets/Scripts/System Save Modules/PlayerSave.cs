@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerSave : MonoBehaviour
 {
@@ -28,13 +29,16 @@ public class PlayerSave : MonoBehaviour
 
     public void SavePlayer(PlayerSaveData data)
     {
-        data.MyPlayerData = new PlayerDatas(Player.MyInstance.transform.position, Player.MyInstance.playerDashData);
+        data.MyPlayerData = new PlayerDatas(Player.MyInstance.transform.position, Player.MyInstance.playerDashData, Player.MyInstance.stageName);
     }
     public void LoadPlayer(PlayerSaveData data)
     {
         Player.MyInstance.transform.position = new Vector3(data.MyPlayerData.MyX, data.MyPlayerData.MyY,data.MyPlayerData.MyZ);
-        Player.MyInstance.playerDashData = Resources.Load<PlayerDashData>(data.MyPlayerData.playerDashDataName);
-        Player.MyInstance.hasDash = Player.MyInstance.playerDashData;
+        Player.MyInstance.stageName = data.MyPlayerData.MySceneName;
+        // SceneManager.LoadScene(data.MyPlayerData.MySceneName);
+        Player.MyInstance.playerDashData = Resources.Load<PlayerDashData>(data.MyPlayerData.PlayerDashDataName);
+        // Player.MyInstance.playerData = Resources.Load<PlayerData>(data.MyPlayerData.playerDataName);
+        Player.MyInstance.hasDash = Player.MyInstance.playerDashData.hasDash;
     }
 
     public void Save()
@@ -48,7 +52,6 @@ public class PlayerSave : MonoBehaviour
         if (SaveSystem.SaveExists(PLAYER_KEY))
         {
             data = SaveSystem.Load<PlayerSaveData>(PLAYER_KEY);
-            // currentSceneIndex = SaveLoad.Load<int>("SavedScene");
             LoadPlayer(data);
         }
     }

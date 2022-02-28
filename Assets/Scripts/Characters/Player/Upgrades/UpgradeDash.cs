@@ -4,7 +4,7 @@ public class UpgradeDash : MonoBehaviour
 {
     private void Awake()
     {
-        if(Player.MyInstance.hasDash)    
+        if(Player.MyInstance.hasDash == true)    
         {
             gameObject.SetActive(false);
         }

@@ -21,4 +21,4 @@ MonoBehaviour:
   drag: 10
   dashEndYMultiplier: 0.2
   distBetweenAfterImages: 0.5
-  hasDash: 0
+  hasDash: 1

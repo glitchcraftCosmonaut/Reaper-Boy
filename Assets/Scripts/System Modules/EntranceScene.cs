@@ -5,13 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class EntranceScene : MonoBehaviour
 {
-    public string lastExitName;
+    // public string lastExitName;
+    public string entrancePassword;
 
-    private void Start()
+    // private void Start()
+    // {
+    //     // if(PlayerPrefs.GetString("LastExitName") == lastExitName)
+    //     // {
+    //     //     Player.MyInstance.transform.position = transform.position;
+    //     // }
+        
+    // }
+    // public GameObject door;
+    private void Start() 
     {
-        if(PlayerPrefs.GetString("LastExitName") == lastExitName)
+        if(PlayerManager.Instance.scenePassword == entrancePassword)
         {
-            PlayerManager.Instance.transform.position = transform.position;
+            Player.MyInstance.transform.position = transform.position;
+            Debug.Log("Enter!");
+        }
+        else
+        {
+            Debug.LogWarning("Wrong Password!");
         }
     }
 }

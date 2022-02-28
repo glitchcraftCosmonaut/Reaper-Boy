@@ -45,7 +45,8 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
     }
     private void OnDisable()
     {
-        DisableAllInputs();
+        DisableAllInput();
+
     }
 
     private void Update()
@@ -56,18 +57,27 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
 
 #region INPUT HANDLER
 
-    public void DisableAllInputs()
+    void SwitchActionMap(InputActionMap actionMap, bool isUIInput)
     {
-        inputActions.Gameplay.Disable();
-    }
+        inputActions.Disable();
+        actionMap.Enable();
 
-    public void EnableGameplayInput()
-    {
-        inputActions.Gameplay.Enable();
-
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if(isUIInput)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
+    public void DisableAllInput() => inputActions.Disable();
+
+    public void EnableGameplayInput() => SwitchActionMap(inputActions.Gameplay, false);
+    public void SwitchToDynamicUpdateMode() => InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInDynamicUpdate;
+    public void SwitchToFixedUpdateMode() => InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInFixedUpdate;
 #endregion
 
 #region MOVEMENT INPUT

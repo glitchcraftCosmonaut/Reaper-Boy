@@ -1902,7 +1902,7 @@ GameObject:
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &436326513
 Transform:
   m_ObjectHideFlags: 0
@@ -1955,8 +1955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c237ace745fe3408ae04b0af1bbb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Stage 2
-  exitName: Stage1Exit1
+  sceneName: Stage 2
+  newScenePassword: Stage2
 --- !u!1 &502664536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2135,6 +2135,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba40b42c806c01b4283e87079f9fec06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &890391707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 890391708}
+  - component: {fileID: 890391709}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &890391708
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890391707}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &890391709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890391707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805a058ee53cc2a4ba72015be6d018be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: 0
 --- !u!1 &1080972954
 GameObject:
   m_ObjectHideFlags: 0
@@ -2377,6 +2421,7 @@ GameObject:
   - component: {fileID: 1216344525}
   - component: {fileID: 1216344526}
   - component: {fileID: 1216344528}
+  - component: {fileID: 1216344529}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -2521,6 +2566,8 @@ MonoBehaviour:
   knockbackStrength: 10
   weapons:
   - {fileID: 644955715}
+  hasDash: 0
+  stageNum: 0
 --- !u!95 &1216344527
 Animator:
   serializedVersion: 3
@@ -2552,6 +2599,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa56327dd124d9846ade0a133762e8f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1216344529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216344521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4443b20f77a350a49b90f244d5f41191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenePassword: 
 --- !u!1 &1251206246
 GameObject:
   m_ObjectHideFlags: 0
@@ -6417,6 +6477,68 @@ MonoBehaviour:
   currentHealth: {fileID: 11400000, guid: f8d02a3435c617a4aba99eda70074470, type: 2}
   maxHealth: {fileID: 11400000, guid: 6aeb5a921ab9b5544834bc6ad282b432, type: 2}
   percentText: {fileID: 1681020281032302223}
+--- !u!1001 &1655636768
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 837480879163926433, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 837480879163926433, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 837480879163926433, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 837480879163926433, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 837480879163926433, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 837480879163926433, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 837480879163926433, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 837480879163926433, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 837480879163926433, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 837480879163926433, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 837480879163926433, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 837480879163926462, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+      propertyPath: m_Name
+      value: SceneLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 837480879163926462, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 837480879163926432, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
 --- !u!1 &1671602869
 GameObject:
   m_ObjectHideFlags: 0
@@ -6534,7 +6656,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1691558449
 Transform:
   m_ObjectHideFlags: 0
@@ -6587,7 +6709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6321500110e705449f686909a2794e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastExitName: Stage2Exit1
+  entrancePassword: Stage1
 --- !u!1 &1761773971
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="newPlayerData", menuName ="Data/Player Data/Base Data")]
 public class PlayerData : ScriptableObject
 {
+    public string objectName;
+
     [Header("Move State")]
     public float movementVelocity = 10f;
 
@@ -13,4 +15,6 @@ public class PlayerData : ScriptableObject
     [Header("In Air State")]
     public float coyoteTime = 0.2f;
     public float variableJumpHeightMultiplier = 0.5f;
+
+    public int stageNum;
 }

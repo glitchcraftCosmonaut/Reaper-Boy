@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class PlayerManager : PersistentSingleton<PlayerManager>
 {
-    
+    public string scenePassword;
 }
