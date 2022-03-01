@@ -172,10 +172,25 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
             AttackInputs[(int)CombatInputs.secondary] = false;
         }
     }
+
+    public void OnFireAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            AttackInputs[(int)CombatInputs.fireElement] = true;
+        }
+
+        if (context.canceled)
+        {
+            AttackInputs[(int)CombatInputs.fireElement] = false;
+        }
+    }
+
     public enum CombatInputs
     {
         primary,
-        secondary
+        secondary,
+        fireElement
     }
 #endregion
 }

@@ -48,6 +48,14 @@ public class PlayerGroundedState : PlayerState
         {
             stateMachine.ChangeState(player.PrimaryAttackState);
         }
+        if (player.input.AttackInputs[(int)CombatInputs.secondary])
+        {
+            stateMachine.ChangeState(player.SecondaryAttackState);
+        }
+        if (player.input.AttackInputs[(int)CombatInputs.fireElement])
+        {
+            stateMachine.ChangeState(player.FlameAttackState);
+        }
         if (JumpInput && player.JumpState.CanJump())
         {
             stateMachine.ChangeState(player.JumpState);

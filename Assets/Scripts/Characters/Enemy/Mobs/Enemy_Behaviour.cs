@@ -7,6 +7,7 @@ public class Enemy_Behaviour : Character, IDamageable
     public Transform rightLimit;
     public GameObject hotZone;
     public GameObject triggerArea;
+    public string attackAnimName;
     [HideInInspector] public Transform target;
 
 
@@ -35,7 +36,7 @@ public class Enemy_Behaviour : Character, IDamageable
         {
             Move();
         }
-        if(!InsideOfLimits() && !enemyData.inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Demon_Attack"))
+        if(!InsideOfLimits() && !enemyData.inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName(attackAnimName))
         {
             SelectTarget();
         }
@@ -69,7 +70,7 @@ public class Enemy_Behaviour : Character, IDamageable
     void Move()
     {
         anim.SetBool("CanWalk",true);
-        if(!anim.GetCurrentAnimatorStateInfo(0).IsName("Demon_Attack"))
+        if(!anim.GetCurrentAnimatorStateInfo(0).IsName(attackAnimName))
         {
             Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
 

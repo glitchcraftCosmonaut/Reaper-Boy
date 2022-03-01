@@ -16,6 +16,7 @@ public class Player : Character
     public PlayerDashState DashState {get; private set; }
     public PlayerAttackState PrimaryAttackState { get; private set; }
     public PlayerAttackState SecondaryAttackState { get; private set; }
+    public PlayerAttackState FlameAttackState { get; private set; }
 
     #endregion
 
@@ -76,6 +77,7 @@ public class Player : Character
         DashState = new PlayerDashState(this, StateMachine, playerDashData, "InAir");
         PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+        FlameAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         
     }
     
@@ -89,6 +91,8 @@ public class Player : Character
         RB = GetComponent<Rigidbody2D>();
         MovementCollider = GetComponent<BoxCollider2D>();
         PrimaryAttackState.SetWeapon(weapons[(int)CombatInputs.primary]);
+        SecondaryAttackState.SetWeapon(weapons[(int)CombatInputs.secondary]);
+        FlameAttackState.SetWeapon(weapons[(int)CombatInputs.fireElement]);
         StateMachine.Initialize(IdleState); 
     }
 
