@@ -2,23 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HotZoneCheck : MonoBehaviour
+public class BossHotZone : MonoBehaviour
 {
-    Enemy_Behaviour enemyParent;
+    Boss bossParent;
     private bool inRange;
     private Animator anim;
+    public string attackAnim;
 
     private void Awake()
     {
-        enemyParent = GetComponentInParent<Enemy_Behaviour>();
+        bossParent = GetComponentInParent<Boss>();
         anim = GetComponentInParent<Animator>();
     }
 
     private void Update()
     {
-        if(inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Demon_Attack"))
+        if(inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName(attackAnim))
         {
-            enemyParent.Flip();
+            bossParent.Flip();
         }
     }
 
@@ -35,9 +36,9 @@ public class HotZoneCheck : MonoBehaviour
         {
             inRange = false;
             gameObject.SetActive(false);
-            enemyParent.triggerArea.SetActive(true);
-            enemyParent.enemyData.inRange = false;
-            enemyParent.SelectTarget();
+            bossParent.triggerArea.SetActive(true);
+            bossParent.enemyData.inRange = false;
+            bossParent.SelectTarget();
         }
     }
 }

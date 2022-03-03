@@ -1,0 +1,108 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Boss_Behaviour : Character, IDamageable
+{
+    public EnemyBehaviourData enemyData;
+    Animator bossAnim;
+    public Transform target;
+    public GameObject tPlayer;
+    public float speed;
+    bool enableAct;
+    int atkStep;
+
+     protected override void OnEnable()
+    {
+        base.OnEnable();
+        // SelectTarget();
+        bossAnim = GetComponent<Animator>();
+        enableAct = true;
+        sp = GetComponentInChildren<SpriteRenderer>();
+        defaultMat2D = GetComponentInChildren<SpriteRenderer>().material;
+    }
+    // private void Start()
+    // {
+        
+    // }
+    void FlipBoss()
+    {
+        Vector3 rotation = transform.eulerAngles;
+        if(transform.position.x > target.position.x)
+        {
+            rotation.y = 0;
+        }
+        else
+        {
+            rotation.y = 180;
+        }
+        transform.eulerAngles = rotation;
+    }
+
+    void MoveBoss()
+    {
+        if((target.position - transform.position).magnitude >= 5)
+        {
+            bossAnim.SetBool("CanWalk", true);
+            Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        }
+        if((target.position - transform.position).magnitude < 5)
+        {
+            bossAnim.SetBool("CanWalk", false);
+        }
+    }
+
+    private void Update()
+    {
+        if (tPlayer == null)
+        {
+            tPlayer = GameObject.FindWithTag("Player");
+            if (tPlayer != null)
+            {
+                target = tPlayer.transform;
+            }
+        }
+        if(enableAct)
+        {
+            FlipBoss();
+            MoveBoss();
+        }
+    }
+
+    void BossAtk()
+    {
+        if((target.position - transform.position).magnitude < 5)
+        {
+            switch(atkStep)
+            {
+                case 0:
+                    atkStep += 1;
+                    bossAnim.Play("Attack1");
+                    break;
+                case 1:
+                    atkStep += 1;
+                    bossAnim.Play("Attack2");
+                    break;
+                case 2:
+                    atkStep = 0;
+                    bossAnim.Play("Attack3");
+                    break;
+            }
+        }
+    }
+    void FreezeBoss()
+    {
+        enableAct = false;
+    }
+    void UnFreezeBoss()
+    {
+        enableAct = true;
+    }
+
+    public void Damage(float amount)
+    {
+        Debug.Log(amount + " Damage taken");
+        TakeDamage(amount);
+    }
+}
