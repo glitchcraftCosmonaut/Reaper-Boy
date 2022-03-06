@@ -4,5 +4,38 @@ using UnityEngine;
 
 public class BossRoomController : MonoBehaviour
 {
-    
+    public GameObject roomConfiner;
+    public Boss_Behaviour boss;
+
+    private void Awake() 
+    {
+        if(boss.enemyData.isDeath == true)
+        {
+            roomConfiner.SetActive(false);
+            gameObject.SetActive(false);
+        } 
+    }
+    private void Update()
+    {
+        if(boss.enemyData.isDeath == true)
+        {
+            roomConfiner.SetActive(false);
+            gameObject.SetActive(false);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Player")
+        {
+            roomConfiner.SetActive(true);
+            boss.gameObject.SetActive(true);
+        }
+    }
+    // private void OnTriggerExit2D(Collider2D other)
+    // {
+    //     if(other.CompareTag("Player") && !other.isTrigger)
+    //     {
+    //         roomConfiner.SetActive(false);
+    //     }
+    // }
 }

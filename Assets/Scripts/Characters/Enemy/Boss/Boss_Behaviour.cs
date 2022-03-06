@@ -5,17 +5,37 @@ using UnityEngine;
 public class Boss_Behaviour : Character, IDamageable
 {
     public EnemyBehaviourData enemyData;
+
     Animator bossAnim;
     public Transform target;
     public GameObject tPlayer;
+    public bool isDeath = false;
     public float speed;
     bool enableAct;
     int atkStep;
+
+    public static Boss_Behaviour instance;
+    public static Boss_Behaviour MyInstance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                instance = FindObjectOfType<Boss_Behaviour>();
+            }
+            return instance;
+        }
+    }
+    private void Awake()
+    {
+        
+    }
 
      protected override void OnEnable()
     {
         base.OnEnable();
         // SelectTarget();
+        enemyData.isDeath = isDeath;
         bossAnim = GetComponent<Animator>();
         enableAct = true;
         sp = GetComponentInChildren<SpriteRenderer>();
@@ -23,8 +43,14 @@ public class Boss_Behaviour : Character, IDamageable
     }
     // private void Start()
     // {
-        
+
     // }
+
+    public override void Die()
+    {
+        base.Die();
+        enemyData.isDeath = true;
+    }
     void FlipBoss()
     {
         Vector3 rotation = transform.eulerAngles;

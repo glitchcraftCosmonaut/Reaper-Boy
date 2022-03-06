@@ -17,3 +17,4 @@ MonoBehaviour:
   moveSpeed: 2
   timer: 4
   inRange: 1
+  isDeath: 1
