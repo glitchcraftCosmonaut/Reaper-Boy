@@ -7,11 +7,13 @@ public class Boss_Behaviour : Character, IDamageable
     public EnemyBehaviourData enemyData;
 
     Animator bossAnim;
+    Rigidbody2D bossRB;
+    Collider2D bossCollider;
     public Transform target;
     public GameObject tPlayer;
     public bool isDeath = false;
     public float speed;
-    bool enableAct;
+    [HideInInspector] public bool enableAct;
     int atkStep;
 
     public static Boss_Behaviour instance;
@@ -28,33 +30,37 @@ public class Boss_Behaviour : Character, IDamageable
     }
     private void Awake()
     {
-        
-    }
-
-     protected override void OnEnable()
-    {
-        base.OnEnable();
-        // SelectTarget();
         enemyData.isDeath = isDeath;
         bossAnim = GetComponent<Animator>();
-        enableAct = true;
+        bossRB = GetComponent<Rigidbody2D>();
+        bossCollider = GetComponent<Collider2D>();
+        // enableAct = true;
         sp = GetComponentInChildren<SpriteRenderer>();
         defaultMat2D = GetComponentInChildren<SpriteRenderer>().material;
+        FreezeBoss();
+        if(isDeath == true)
+        {
+            bossRB.bodyType = RigidbodyType2D.Static;
+            bossCollider.enabled = false;
+            sp.enabled = false;
+        }
     }
-    // private void Start()
-    // {
-
-    // }
 
     public override void Die()
     {
         base.Die();
-        enemyData.isDeath = true;
+        bossAnim.SetBool("IsDeath", true);
+        isDeath = true;
+        enemyData.isDeath = isDeath;
+        enableAct = false;
+        bossRB.bodyType = RigidbodyType2D.Static;
+        bossCollider.enabled = false;
+        sp.enabled = false;
     }
     void FlipBoss()
     {
         Vector3 rotation = transform.eulerAngles;
-        if(transform.position.x > target.position.x)
+        if(transform.position.x > target.position.x && isDeath == false)
         {
             rotation.y = 0;
         }
@@ -67,7 +73,7 @@ public class Boss_Behaviour : Character, IDamageable
 
     void MoveBoss()
     {
-        if((target.position - transform.position).magnitude >= 5)
+        if((target.position - transform.position).magnitude >= 5&& isDeath == false)
         {
             bossAnim.SetBool("CanWalk", true);
             Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
@@ -98,7 +104,7 @@ public class Boss_Behaviour : Character, IDamageable
 
     void BossAtk()
     {
-        if((target.position - transform.position).magnitude < 5)
+        if((target.position - transform.position).magnitude < 5 && isDeath == false)
         {
             switch(atkStep)
             {

@@ -7,7 +7,7 @@ public class Character : MonoBehaviour
     //pool manager here
     
     [Header("HEALTH SYSTEM")]
-    [SerializeField] protected FloatValueSO maxHealth;
+    [SerializeField] protected float maxHealth;
     [SerializeField] protected FloatValueSO health;
 
     [Header("HURT EFFECT")]
@@ -18,14 +18,14 @@ public class Character : MonoBehaviour
     protected virtual void OnEnable()
     {
         //debug
-        health.Value = maxHealth.Value;
+        health.Value = maxHealth;
         // health.Value = 1;
     }
     public virtual void TakeDamage(float damage)
     {
         if(health.Value == 0f) return;
         StartCoroutine(HurtEffect());
-        health.Value -= damage / maxHealth.Value;
+        health.Value -= damage / maxHealth;
         if(health.Value <= 0)
         {
             Die();
@@ -38,15 +38,15 @@ public class Character : MonoBehaviour
         health.Value = 0;
         // AudioManager.Instance.PlayRandomSFX(deathSFX);
         // PoolManager.Release(deathVFX, transform.position);
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
     }
 
     public virtual void RestoreHealth(int value)
     {
-        if(health.Value == maxHealth.Value) return;
+        if(health.Value == maxHealth) return;
         // health += value;
         // health = Mathf.Clamp(health, 0f, maxHealth);
-        health.Value = Mathf.Clamp(health.Value + value, 0f, maxHealth.Value);
+        health.Value = Mathf.Clamp(health.Value + value, 0f, maxHealth);
     }
 
     // protected IEnumerator HealthRegenerationCoroutine(WaitForSeconds waitTime, int percent)

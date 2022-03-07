@@ -55,9 +55,12 @@ TagManager:
   - name: Player
     uniqueID: 2706342001
     locked: 0
+  - name: Collectibles
+    uniqueID: 538365109
+    locked: 0
   - name: Trap
     uniqueID: 2705183353
     locked: 0
-  - name: Collectibles
-    uniqueID: 538365109
+  - name: UI
+    uniqueID: 3771683779
     locked: 0

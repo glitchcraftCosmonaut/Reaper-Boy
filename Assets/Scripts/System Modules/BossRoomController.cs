@@ -28,7 +28,7 @@ public class BossRoomController : MonoBehaviour
         if(other.tag == "Player")
         {
             roomConfiner.SetActive(true);
-            boss.gameObject.SetActive(true);
+            boss.enableAct = true;
         }
     }
     // private void OnTriggerExit2D(Collider2D other)

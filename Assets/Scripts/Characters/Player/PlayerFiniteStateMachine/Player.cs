@@ -112,6 +112,11 @@ public class Player : Character
         IKnockbackable knockbackable = GetComponentInChildren<IKnockbackable>();
         knockbackable.Knockback(knockbackAngle, knockbackStrength, Core.Movement.FacingDirection * -1);       
     }
+    public override void Die()
+    {
+        base.Die();
+        gameObject.SetActive(false);
+    }
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
 

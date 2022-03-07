@@ -3,19 +3,18 @@ public class SaveGameManager : PersistentSingleton<SaveGameManager>
     // public static List<Player> player = new List<Player>();
     // // private Player player;
     // [SerializeField] Player playerPrefab;
-    public PlayerSaveData data { get; set; } = new PlayerSaveData();
-    public PlayerSave playerSave;
+     public EnemySaveData data {get; set;} = new EnemySaveData();
 
-
-    const string PLAYER_KEY = "/player";
+    const string ENEMY_KEY = "Enemy";
+    public EnemySave enemySave;
 
     protected override void Awake()
     {
-        base.Awake();
-        if(playerSave == null)
-        {
-            playerSave = FindObjectOfType<PlayerSave>();
-        }
+        // base.Awake();
+        // if(playerSave == null)
+        // {
+        //     playerSave = FindObjectOfType<PlayerSave>();
+        // }
         
         GameEvents.SaveInitiated += Save;
         
@@ -34,16 +33,16 @@ public class SaveGameManager : PersistentSingleton<SaveGameManager>
     
     public void Save()
     {
-        playerSave.SavePlayer(data);
-        SaveSystem.Save(data, PLAYER_KEY);
+        enemySave.SaveEnemy(data);
+        SaveSystem.Save(data, ENEMY_KEY);
     }
 
     public void Load()
     {
-        if (SaveSystem.SaveExists(PLAYER_KEY))
+        if (SaveSystem.SaveExists(ENEMY_KEY))
         {
-            data = SaveSystem.Load<PlayerSaveData>(PLAYER_KEY);
-            playerSave.LoadPlayer(data);
+            data = SaveSystem.Load<EnemySaveData>(ENEMY_KEY);
+            enemySave.LoadEnemy(data);
         }
     }
 }

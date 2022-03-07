@@ -10,9 +10,12 @@ public class ExitScene : Singleton<ExitScene>
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerManager.Instance.scenePassword = newScenePassword;
-        // PlayerPrefs.SetString("LastExitName",exitName);
-        // SceneLoader.Instance.LoadNextScene(sceneName);
-        SceneManager.LoadScene(sceneName);
+        if(other.CompareTag("Player"))
+        {
+            PlayerManager.Instance.scenePassword = newScenePassword;
+            // PlayerPrefs.SetString("LastExitName",exitName);
+            // SceneLoader.Instance.LoadNextScene(sceneName);
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }

@@ -47,6 +47,11 @@ public class Enemy_Behaviour : Character, IDamageable
         }
 
     }
+    public override void Die()
+    {
+        base.Die();
+        gameObject.SetActive(false);
+    }
 
     void EnemyLogic()
     {

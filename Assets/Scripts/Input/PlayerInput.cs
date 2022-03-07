@@ -6,10 +6,12 @@ using UnityEngine.InputSystem;
 using System;
 
 [CreateAssetMenu(menuName = "Player Input")]
-public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
+public class PlayerInput : ScriptableObject, InputActions.IGameplayActions, InputActions.IPauseMenuActions
 {
 
 #region Encapsulasion Properties
+    public event UnityAction onPause = delegate {};
+    public event UnityAction onUnPause = delegate {};
     public Vector2 RawMovementInput { get; private set; }
     public Vector2 RawDashDirectionInput { get; private set; }
     public int NormInputX { get; private set; }
@@ -76,6 +78,7 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
     public void DisableAllInput() => inputActions.Disable();
 
     public void EnableGameplayInput() => SwitchActionMap(inputActions.Gameplay, false);
+    public void EnablePauseInput() => SwitchActionMap(inputActions.PauseMenu, true);
     public void SwitchToDynamicUpdateMode() => InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInDynamicUpdate;
     public void SwitchToFixedUpdateMode() => InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInFixedUpdate;
 #endregion
@@ -183,6 +186,22 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions
         if (context.canceled)
         {
             AttackInputs[(int)CombatInputs.fireElement] = false;
+        }
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            onPause.Invoke();
+        }
+    }
+
+    public void OnUnPause(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            onUnPause.Invoke();
         }
     }
 
