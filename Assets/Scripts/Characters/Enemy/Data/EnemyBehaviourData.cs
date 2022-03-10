@@ -11,6 +11,6 @@ public class EnemyBehaviourData : ScriptableObject
     public float moveSpeed;
     public float timer;
     public bool inRange; // check if player in range
-    public bool isDeath;
+    public bool isDeath = false;
 
 }

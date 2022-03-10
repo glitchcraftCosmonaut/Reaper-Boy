@@ -5,15 +5,20 @@ using UnityEngine;
 public class Boss_Behaviour : Character, IDamageable
 {
     public EnemyBehaviourData enemyData;
+    BossHealthBar healthBar;
 
+    EnemySave enemySave;
+    UniqueID uniqueID;
     Animator bossAnim;
     Rigidbody2D bossRB;
     Collider2D bossCollider;
+    const string ENEMY_KEY = "Enemy";
     public Transform target;
     public GameObject tPlayer;
     public bool isDeath = false;
     public float speed;
     [HideInInspector] public bool enableAct;
+    [HideInInspector] public Canvas healthBarCanvas;
     int atkStep;
 
     public static Boss_Behaviour instance;
@@ -30,25 +35,45 @@ public class Boss_Behaviour : Character, IDamageable
     }
     private void Awake()
     {
-        enemyData.isDeath = isDeath;
+        healthBar = FindObjectOfType<BossHealthBar>();
+        healthBarCanvas = healthBar.GetComponentInChildren<Canvas>();
         bossAnim = GetComponent<Animator>();
         bossRB = GetComponent<Rigidbody2D>();
         bossCollider = GetComponent<Collider2D>();
-        // enableAct = true;
+        enemySave = GetComponent<EnemySave>();
+        uniqueID = GetComponent<UniqueID>();
         sp = GetComponentInChildren<SpriteRenderer>();
         defaultMat2D = GetComponentInChildren<SpriteRenderer>().material;
         FreezeBoss();
-        if(isDeath == true)
+        if(SaveGameManager.Instance.DeathState.Contains(uniqueID.ID))
         {
-            bossRB.bodyType = RigidbodyType2D.Static;
-            bossCollider.enabled = false;
-            sp.enabled = false;
+            gameObject.SetActive(false);
         }
+
+        // if(health.Value > 0)
+        // {
+        //     enemyData.isDeath = isDeath;
+        // }
+        // if(health.Value == 0)
+        // {
+        //     isDeath = enemyData.isDeath;
+        // }
+        // if(isDeath == true)
+        // {
+        //     bossRB.bodyType = RigidbodyType2D.Static;
+        //     bossCollider.enabled = false;
+        //     sp.enabled = false;
+        //     healthBarCanvas.enabled = false;
+        // }
+
+
     }
 
     public override void Die()
     {
         base.Die();
+        // GameEvents.OnSaveInitiated();
+        healthBarCanvas.enabled = false;
         bossAnim.SetBool("IsDeath", true);
         isDeath = true;
         enemyData.isDeath = isDeath;
@@ -56,6 +81,7 @@ public class Boss_Behaviour : Character, IDamageable
         bossRB.bodyType = RigidbodyType2D.Static;
         bossCollider.enabled = false;
         sp.enabled = false;
+        SaveGameManager.Instance.DeathState.Add(uniqueID.ID);
     }
     void FlipBoss()
     {

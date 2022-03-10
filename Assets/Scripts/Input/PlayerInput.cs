@@ -12,6 +12,7 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions, Inpu
 #region Encapsulasion Properties
     public event UnityAction onPause = delegate {};
     public event UnityAction onUnPause = delegate {};
+    public event UnityAction onInteract = delegate {};
     public Vector2 RawMovementInput { get; private set; }
     public Vector2 RawDashDirectionInput { get; private set; }
     public int NormInputX { get; private set; }
@@ -202,6 +203,14 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions, Inpu
         if(context.performed)
         {
             onUnPause.Invoke();
+        }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            onInteract.Invoke();
         }
     }
 

@@ -18,15 +18,15 @@ public class Character : MonoBehaviour
     protected virtual void OnEnable()
     {
         //debug
-        health.Value = maxHealth;
-        // health.Value = 1;
+        // health.Value = maxHealth;
+        health.Value = 1;
     }
     public virtual void TakeDamage(float damage)
     {
         if(health.Value == 0f) return;
         StartCoroutine(HurtEffect());
         health.Value -= damage / maxHealth;
-        if(health.Value <= 0)
+        if(health.Value <= 0.1)
         {
             Die();
         }

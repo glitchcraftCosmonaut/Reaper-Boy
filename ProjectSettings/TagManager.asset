@@ -49,6 +49,9 @@ TagManager:
   - name: Foreground
     uniqueID: 2046175131
     locked: 0
+  - name: Interactable
+    uniqueID: 3329619123
+    locked: 0
   - name: Enemy
     uniqueID: 3338685063
     locked: 0

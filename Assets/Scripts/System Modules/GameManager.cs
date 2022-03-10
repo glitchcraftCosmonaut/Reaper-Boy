@@ -11,6 +11,7 @@ public enum GameState
 {
     Playing,
     Paused,
+    SavePoint,
     GameOver,
     Scoring
 }

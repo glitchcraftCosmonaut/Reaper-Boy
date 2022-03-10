@@ -9,13 +9,13 @@ public class Statsbar : MonoBehaviour
     [SerializeField] bool delayFill = true;
     [SerializeField] float fillDelay = 0.5f;
     [SerializeField] float fillSpeed = 0.1f;
-    float currentFillAmount;
-    protected float targetFillAmount;
+    public float currentFillAmount;
+    public float targetFillAmount;
     float previousFillAmount;
     float t;
 
     [SerializeField] protected FloatValueSO currentHealth;
-    [SerializeField] protected FloatValueSO maxHealth;
+    [SerializeField] protected float maxHealth = 100;
 
 
     WaitForSeconds waitForDelayFill;
@@ -49,8 +49,10 @@ public class Statsbar : MonoBehaviour
 
     public virtual void Initialize(float currentValue)
     {
-        currentValue = currentHealth.Value;
-        currentFillAmount = currentValue / maxHealth.Value;
+        // currentValue = currentHealth.Value;
+        // currentFillAmount = currentValue / maxHealthSO.Value;
+        // currentFillAmount = Mathf.Clamp01(currentValue);
+        currentFillAmount = currentValue;
         targetFillAmount = currentFillAmount;
         fillImageBack.fillAmount = currentFillAmount;
         fillImageFront.fillAmount = currentFillAmount;
@@ -58,7 +60,8 @@ public class Statsbar : MonoBehaviour
 
     public virtual void UpdateStates(float currentValue)
     {
-        targetFillAmount = currentValue / maxHealth.Value;
+        targetFillAmount = currentValue;
+        // currentFillAmount = currentValue;
 
         if(bufferedFillCoroutine != null)
         {

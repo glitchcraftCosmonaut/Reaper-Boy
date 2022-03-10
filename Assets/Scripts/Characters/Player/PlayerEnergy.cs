@@ -2,46 +2,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="newPlayerData", menuName ="Data/Player Data/Energy Data")]
-public class PlayerEnergy : SingletonScriptableObject<PlayerEnergy>
+public class PlayerEnergy : Singleton<PlayerEnergy>
 {
     [SerializeField] Energybar energyBar;
-
-    bool available = true;
-
-    public const int MAX = 100;
+    [SerializeField] public FloatValueSO energy;
+    public const float MAX = 100;
     public const int PERCENT = 1;
-    int energy;
 
 
 
-    void Start()
+
+    protected override void Awake()
     {
+        base.Awake();
         // energyBar.Initialize(energy, MAX);
         // Obtain(MAX);
+        energy.Value = 1;
     }
 
-    public void Obtain(int value)
+    public void Obtain(float value)
     {
-        if (energy == MAX || !available) return;
+        if (energy.Value == MAX) return;
 
-        energy = Mathf.Clamp(energy + value, 0, MAX);
+        energy.Value = Mathf.Clamp(energy.Value + value, 0, 1);
         // energyBar.UpdateStates(energy, MAX);
     }
 
-    public void Use(int value)
+    public void Use(float value)
     {
         // energy -= value;
-        energy = Mathf.Clamp(energy - value, 0, MAX);
+        // energy.Value = Mathf.Clamp(value/MAX, 0f, MAX);
+        
+        // energy.Value = Mathf.Clamp(energy.Value - value, 0, MAX);
+        energy.Value = Mathf.Clamp(energy.Value - value, 0, 1);
+        // energy.Value -= value /MAX;
+        
+    }
 
-        // energyBar.UpdateStates(energy, MAX);
-
-        // if player is overdriving and energy = 0
-        if (energy == 0 && !available)
+    public virtual void RestoreEnergy(float value)
+    {
+        if(energy.Value == MAX) return;
+        // health += value;
+        // health = Mathf.Clamp(health, 0f, maxHealth);
+        energy.Value = Mathf.Clamp(energy.Value + value, 0f, 1);
+    }
+    public IEnumerator HealthRegenerationCoroutine(WaitForSeconds waitTime, float percent)
+    {
+        while(energy.Value < MAX)
         {
+            yield return waitTime;
+
+            RestoreEnergy(energy.Value * percent);
         }
     }
 
-    public bool IsEnough(int value) => energy >= value;
+    public bool IsEnough(int value) => energy.Value >= value;
     
 }

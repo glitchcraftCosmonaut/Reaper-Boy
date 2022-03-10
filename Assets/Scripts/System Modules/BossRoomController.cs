@@ -9,7 +9,7 @@ public class BossRoomController : MonoBehaviour
 
     private void Awake() 
     {
-        if(boss.enemyData.isDeath == true)
+        if(boss.isDeath == true)
         {
             roomConfiner.SetActive(false);
             gameObject.SetActive(false);
@@ -17,7 +17,7 @@ public class BossRoomController : MonoBehaviour
     }
     private void Update()
     {
-        if(boss.enemyData.isDeath == true)
+        if(boss.isDeath == true)
         {
             roomConfiner.SetActive(false);
             gameObject.SetActive(false);
@@ -29,6 +29,7 @@ public class BossRoomController : MonoBehaviour
         {
             roomConfiner.SetActive(true);
             boss.enableAct = true;
+            boss.healthBarCanvas.enabled = true;
         }
     }
     // private void OnTriggerExit2D(Collider2D other)
