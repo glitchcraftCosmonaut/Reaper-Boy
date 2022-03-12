@@ -27,7 +27,7 @@ public class Player : Character
     public Core Core { get; private set; }
     public Animator Anim { get; private set; }
     public BoxCollider2D MovementCollider { get; private set; }
-    public HashSet<string> UpgradeStates { get; set; } = new HashSet<string>();
+    // public HashSet<string> UpgradeStates { get; set; } = new HashSet<string>();
 
     #endregion
 
@@ -51,9 +51,11 @@ public class Player : Character
 
     private Vector2 knockbackAngle;
     private float knockbackStrength;
+    private Rigidbody2D rb;
     public Rigidbody2D RB { get; private set; }
     public Weapon[] weapons;
     public bool hasDash = false;
+    public bool hasFireAttack = false;
     public Vector2 boxSize = new Vector2(0.1f,1f);
     public Scene sceneName;
     public string stageName;
@@ -77,6 +79,7 @@ public class Player : Character
     {
         #region Component
         Core = GetComponentInChildren<Core>();
+        rb = GetComponent<Rigidbody2D>();
         sp = GetComponent<SpriteRenderer>();
         defaultMat2D = GetComponent<SpriteRenderer>().material;
         stageName = SceneManager.GetActiveScene().name;
@@ -104,7 +107,9 @@ public class Player : Character
     protected override void OnEnable()
     {
         base.OnEnable();
+        health.Value = 1;
         input.onInteract += CheckInteraction;
+        sp.material = defaultMat2D;
     }
     private void OnDisable()
     {
@@ -128,11 +133,11 @@ public class Player : Character
         {
             if(regenerateEnergy)
             {
-                if(energyRegenerateCoroutine != null)
-                {
-                    StopCoroutine(energyRegenerateCoroutine);
-                }
-                energyRegenerateCoroutine = StartCoroutine(PlayerEnergy.Instance.HealthRegenerationCoroutine(waitEnergyRegenerateTime, energyRegeneratePercent));
+                // if(energyRegenerateCoroutine != null)
+                // {
+                //     StopCoroutine(energyRegenerateCoroutine);
+                // }
+                energyRegenerateCoroutine = StartCoroutine(PlayerEnergy.Instance.EnergyRegenCoroutine(waitEnergyRegenerateTime, energyRegeneratePercent));
             }
         }
     }
@@ -150,11 +155,14 @@ public class Player : Character
     {
         //this is work but improve this soon maybe
         base.TakeDamage(enemyData.attackDamage);
-        IKnockbackable knockbackable = GetComponentInChildren<IKnockbackable>();
-        knockbackable.Knockback(knockbackAngle, knockbackStrength, Core.Movement.FacingDirection * -1);     
+        rb.velocity = Vector2.up * 15;
+        // IKnockbackable knockbackable = GetComponentInChildren<IKnockbackable>();
+        // knockbackable.Knockback(knockbackAngle, knockbackStrength, Core.Movement.FacingDirection * -1);     
     }
     public override void Die()
     {
+        GameManager.onGameOver?.Invoke();
+        GameManager.GameState = GameState.GameOver;
         base.Die();
         gameObject.SetActive(false);
     }

@@ -6,24 +6,18 @@ public class LootItem : MonoBehaviour
 {
     int pickUpStateID = Animator.StringToHash("PickUp");
     public Animator animator;
-    protected CollectibleManager collectibleManager;
-    protected UniqueID uniqueID;
 
-    protected virtual void Awake() 
+    private void Awake() 
     {
-        animator = GetComponent<Animator>();
-        uniqueID = GetComponent<UniqueID>();
-        collectibleManager = FindObjectOfType<CollectibleManager>();
-        if (collectibleManager.CollectedItems.Contains(uniqueID.ID))
-        {
-            gameObject.SetActive(false);
-        }
-        
+        animator = GetComponent<Animator>();   
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        PickUp();
+        if(other.CompareTag("Player"))
+        {
+            PickUp();
+        }
     }
 
     protected virtual void PickUp()

@@ -52,8 +52,10 @@ public class PlayerGroundedState : PlayerState
         {
             stateMachine.ChangeState(player.SecondaryAttackState);
         }
-        if (player.input.AttackInputs[(int)CombatInputs.fireElement])
+        if (player.input.AttackInputs[(int)CombatInputs.fireElement] && player.hasFireAttack)
         {
+            if(PlayerSpecialEnergy.Instance.specialEnergy.Value == 0) return;
+            PlayerSpecialEnergy.Instance.Use(player.playerEnergyCost.Value);
             stateMachine.ChangeState(player.FlameAttackState);
         }
         if (JumpInput && player.JumpState.CanJump())
@@ -67,7 +69,7 @@ public class PlayerGroundedState : PlayerState
         }
         else if (dashInput && player.DashState.CheckIfCanDash())
         {
-            if(PlayerEnergy.Instance.energy.Value == 0.1) return;
+            if(PlayerEnergy.Instance.energy.Value == 0) return;
             PlayerEnergy.Instance.Use(player.playerEnergyCost.Value);
             stateMachine.ChangeState(player.DashState);
         }

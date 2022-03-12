@@ -8,7 +8,7 @@ public class Character : MonoBehaviour
     
     [Header("HEALTH SYSTEM")]
     [SerializeField] protected float maxHealth;
-    [SerializeField] protected FloatValueSO health;
+    [SerializeField] public FloatValueSO health;
 
     [Header("HURT EFFECT")]
     [SerializeField] protected Material hurtMat;
@@ -19,7 +19,6 @@ public class Character : MonoBehaviour
     {
         //debug
         // health.Value = maxHealth;
-        health.Value = 1;
     }
     public virtual void TakeDamage(float damage)
     {

@@ -9,8 +9,8 @@ public class Statsbar : MonoBehaviour
     [SerializeField] bool delayFill = true;
     [SerializeField] float fillDelay = 0.5f;
     [SerializeField] float fillSpeed = 0.1f;
-    public float currentFillAmount;
-    public float targetFillAmount;
+    protected float currentFillAmount;
+    protected float targetFillAmount;
     float previousFillAmount;
     float t;
 

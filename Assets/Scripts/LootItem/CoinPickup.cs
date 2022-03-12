@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class CoinPickup : LootItem
 {
-    [SerializeField] int fullHealthScore = 200;
-    [SerializeField] float shieldBonus = 20f;
+    [SerializeField] int coingPoint = 1;
     protected override void PickUp()
     {
         // pickUpSFX = fullHealthPickUpSFX;
         // lootMessage.text = $"SCORE + {fullHealthScore}";
-        collectibleManager.AddCoin(fullHealthScore);
         base.PickUp();
+        CollectibleManager.Instance.AddCoin(coingPoint);
     }
 }

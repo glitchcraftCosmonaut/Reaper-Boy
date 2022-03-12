@@ -13,10 +13,7 @@ public class CoinDisplay : MonoBehaviour
     }
     private void Start()
     {
-        // var playerCoinList= CollectibleManager.Instance.LoadPlayerCollectibleData().list;
-        // playerCoinList[0].coin.ToString();
-        // CollectibleManager.Instance.Load();
-        // coinText.text = "X " + CollectibleManager.Instance.Coin.ToString();
+        coinText.text = "X " + CollectibleManager.Instance.Coin.ToString();
     }
 
     public static void UpdateText(int coin) => coinText.text = "X " + coin.ToString();

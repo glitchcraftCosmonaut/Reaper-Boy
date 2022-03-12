@@ -9,6 +9,7 @@ public class SceneLoader : PersistentSingleton<SceneLoader>
     [SerializeField] UnityEngine.UI.Image transitionImage;
     [SerializeField] float fadeTime = 3.5f;
     public PlayerSaveData data { get; set; } = new PlayerSaveData();
+    [SerializeField] PlayerInput playerInput;
 
     Color color;
     private string sceneToContinue;
@@ -39,7 +40,15 @@ public class SceneLoader : PersistentSingleton<SceneLoader>
 
         //active the new scene
         loadingOperation.allowSceneActivation = true;
+        if(Player.MyInstance != null)
+        {
+            // Instantiate(Player.MyInstance.gameObject);
+            Player.MyInstance.gameObject.SetActive(true);
+            // Player.MyInstance.Anim.enabled = true;
+        }
+        playerInput.EnableGameplayInput();
         // SceneManager.LoadScene(sceneName);
+        // Player.MyInstance.health.Value = 1;
 
         //fade in
         while(color.a > 0f)
@@ -59,10 +68,10 @@ public class SceneLoader : PersistentSingleton<SceneLoader>
         StopAllCoroutines();
         StartCoroutine(LoadingCoroutine(GAMEPLAY));
     }
-    public void LoadNextScene()
+    public void LoadNextScene(string sceneName)
     {
         StopAllCoroutines();
-        // StartCoroutine(LoadingCoroutine());
+        StartCoroutine(LoadingCoroutine(sceneName));
     }
     public void LoadSavedGamePlayScene()
     {

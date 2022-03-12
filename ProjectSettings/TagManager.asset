@@ -46,9 +46,6 @@ TagManager:
   - name: Platform
     uniqueID: 1531358899
     locked: 0
-  - name: Foreground
-    uniqueID: 2046175131
-    locked: 0
   - name: Interactable
     uniqueID: 3329619123
     locked: 0
@@ -63,6 +60,9 @@ TagManager:
     locked: 0
   - name: Trap
     uniqueID: 2705183353
+    locked: 0
+  - name: Foreground
+    uniqueID: 2046175131
     locked: 0
   - name: UI
     uniqueID: 3771683779

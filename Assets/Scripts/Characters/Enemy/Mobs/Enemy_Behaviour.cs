@@ -1,4 +1,5 @@
 using UnityEngine;
+using static PlayerInput;
 
 public class Enemy_Behaviour : Character, IDamageable
 {
@@ -11,7 +12,7 @@ public class Enemy_Behaviour : Character, IDamageable
     [HideInInspector] public Transform target;
 
 
-
+    LootSpawner lootSpawner;
     private Animator anim;
     protected float distance; //distance between enemy and player
     private bool attackMode;
@@ -24,6 +25,8 @@ public class Enemy_Behaviour : Character, IDamageable
     {
         base.OnEnable();
         SelectTarget();
+        lootSpawner = GetComponent<LootSpawner>();
+        health.Value = 1;
         intTimer = enemyData.timer;
         anim = GetComponent<Animator>();
         sp = GetComponentInChildren<SpriteRenderer>();
@@ -50,6 +53,7 @@ public class Enemy_Behaviour : Character, IDamageable
     public override void Die()
     {
         base.Die();
+        lootSpawner.Spawn(transform.position);
         gameObject.SetActive(false);
     }
 
@@ -152,6 +156,11 @@ public class Enemy_Behaviour : Character, IDamageable
     public void Damage(float amount)
     {
         Debug.Log(amount + " Damage taken");
+        if(!Player.MyInstance.input.AttackInputs[(int)CombatInputs.fireElement])
+        {
+            PlayerSpecialEnergy.Instance.Obtain(0.1f);
+        }
+
         TakeDamage(amount);
     }
 }

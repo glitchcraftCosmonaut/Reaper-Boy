@@ -309,3 +309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b8c56a3c9deaa4da4fe9cb530b5c1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectSFX:
+    audioClip: {fileID: 8300000, guid: 654048caa45854448b2c75437d797cd4, type: 3}
+    volume: 1
+  submitSFX:
+    audioClip: {fileID: 8300000, guid: 92b87d921e37664428a2030f8e218001, type: 3}
+    volume: 5

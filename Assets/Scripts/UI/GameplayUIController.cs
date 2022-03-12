@@ -16,38 +16,41 @@ public class GameplayUIController : MonoBehaviour
     [Header("Canvas")]
     [SerializeField] Canvas hUDCanvas;
     [SerializeField] Canvas menusCanvas;
+    [SerializeField] Canvas gameOverCanvas;
 
     [Header("button")]
     [SerializeField] Button resumeButton;
-    // [SerializeField] Button optionButton;
     [SerializeField] Button mainMenuButton;
 
+    [SerializeField] Button restartButton;
+    [SerializeField] Button mainMenuGameOverButton;
+    
+    const string PLAYER_KEY = "/player";
     int buttonPressedParameterID = Animator.StringToHash("Pressed");
     
     private void OnEnable()
     {
         playerInput.onPause += Pause;
         playerInput.onUnPause += Unpause;
-
-        // resumeButton.onClick.AddListener(OnResumeButtonClick);
-        // optionButton.onClick.AddListener(OnOptionButtonClick);
-        // mainMenuButton.onClick.AddListener(OnMainMenuButtonClick);
+        GameManager.onGameOver += OnGameOver;
 
         ButtonPressedBehaviour.buttonFunctionTable.Add(resumeButton.gameObject.name, OnResumeButtonClick);
-        // ButtonPressedBehavior.buttonFunctionTable.Add(optionButton.gameObject.name, OnOptionButtonClick);
         ButtonPressedBehaviour.buttonFunctionTable.Add(mainMenuButton.gameObject.name, OnMainMenuButtonClick);
+        ButtonPressedBehaviour.buttonFunctionTable.Add(restartButton.gameObject.name, OnRestartButtonClick);
+        ButtonPressedBehaviour.buttonFunctionTable.Add(mainMenuGameOverButton.gameObject.name, OnMainMenuButtonClick);
     }
 
     private void OnDisable()
     {
         playerInput.onPause -= Pause;
         playerInput.onUnPause -= Unpause;
-
-        // resumeButton.onClick.RemoveAllListeners();
-        // optionButton.onClick.RemoveAllListeners();
-        // mainMenuButton.onClick.RemoveAllListeners();
-
+        GameManager.onGameOver -= OnGameOver;
         ButtonPressedBehaviour.buttonFunctionTable.Clear();
+    }
+    private void Start()
+    {
+        restartButton.enabled = false;
+        mainMenuGameOverButton.enabled = false;
     }
 
     void Pause()
@@ -80,12 +83,35 @@ public class GameplayUIController : MonoBehaviour
         playerInput.SwitchToFixedUpdateMode();
     }
 
-    // void OnOptionButtonClick()
-    // {
-    //     //todo
-    //     UIInput.Instance.SelectUI(optionButton);
-    //     playerInput.EnablePauseInput();
-    // }
+    private void OnGameOver()
+    {
+        hUDCanvas.enabled = false;
+        gameOverCanvas.enabled = true;
+        GameManager.GameState = GameState.GameOver;
+        resumeButton.enabled = false;
+        mainMenuButton.enabled = false;
+        restartButton.enabled = true;
+        mainMenuGameOverButton.enabled = true;
+        playerInput.SwitchToDynamicUpdateMode();
+        playerInput.DisableAllInput();
+        UIInput.Instance.SelectUI(restartButton);
+    }
+
+     private void OnRestartButtonClick()
+    {
+        gameOverCanvas.enabled = false;
+        playerInput.SwitchToFixedUpdateMode();
+        Destroy(Player.MyInstance.gameObject);
+        GameManager.GameState = GameState.Playing;
+        if(SaveSystem.SaveExists(PLAYER_KEY))
+        {
+            SceneLoader.Instance.LoadSavedGamePlayScene();
+        }
+        else
+        {
+            SceneLoader.Instance.LoadGamePlayScene();
+        }
+    }
 
     void OnMainMenuButtonClick()
     {

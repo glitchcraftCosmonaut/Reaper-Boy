@@ -8,38 +8,12 @@ public class SaveGameManager : PersistentSingleton<SaveGameManager>
     // [SerializeField] Player playerPrefab;
     public PlayerSaveData data { get; set; } = new PlayerSaveData();
     public EnemySaveData enemyData {get; set;} = new EnemySaveData();
-    public HashSet<string> UpgradeStates { get; set; } = new HashSet<string>();
-    public HashSet<string> DeathState { get; set; } = new HashSet<string>();
+    // public HashSet<string> UpgradeStates { get; set; } = new HashSet<string>();
+    public HashSet<string> DeathStates { get; set; } = new HashSet<string>();
+
     private int currentSceneIndex;
     const string PLAYER_KEY = "/player";
-    const string PLAYER_COUNT_KEY = "/player.count";
-    const string ENEMY_KEY = "Enemy";
-    public EnemySave enemySave;
 
-    // protected override void Awake()
-    // {
-        
-    //     GameEvents.SaveInitiated += Save;
-        
-    //     GameEvents.LoadInitiated += Load;
-    //     Load();
-    // }
-
-    
-    // public void Save()
-    // {
-    //     enemySave.SaveEnemy(data);
-    //     SaveSystem.Save(data, ENEMY_KEY);
-    // }
-
-    // public void Load()
-    // {
-    //     if (SaveSystem.SaveExists(ENEMY_KEY))
-    //     {
-    //         data = SaveSystem.Load<EnemySaveData>(ENEMY_KEY);
-    //         enemySave.LoadEnemy(data);
-    //     }
-    // }
     protected override void Awake()
     {
         base.Awake();
@@ -51,7 +25,8 @@ public class SaveGameManager : PersistentSingleton<SaveGameManager>
     public void SavePlayer(PlayerSaveData data)
     {
         data.MyPlayerData = new PlayerDatas(
-            Player.MyInstance.transform.position,Player.MyInstance.stageName, Player.MyInstance.hasDash, UpgradeStates, DeathState
+            Player.MyInstance.transform.position,Player.MyInstance.stageName, 
+            Player.MyInstance.hasDash, Boss_Behaviour.MyInstance.enemyData, Boss_Behaviour.MyInstance.isDeath, Player.MyInstance.hasFireAttack
             );
     }
     public void LoadPlayer(PlayerSaveData data)
@@ -59,9 +34,15 @@ public class SaveGameManager : PersistentSingleton<SaveGameManager>
         Player.MyInstance.transform.position = new Vector3(data.MyPlayerData.MyX, data.MyPlayerData.MyY,data.MyPlayerData.MyZ);
         Player.MyInstance.stageName = data.MyPlayerData.MySceneName;
         Player.MyInstance.hasDash = data.MyPlayerData.MyDash;
-        UpgradeStates = data.MyPlayerData.UpgradeStates;
-        DeathState = data.MyPlayerData.EnemyDeathState;
+        Player.MyInstance.hasFireAttack = data.MyPlayerData.MyFireAttack;
+        // Player.MyInstance.UpgradeStates = data.MyPlayerData.UpgradeStates;
+        Boss_Behaviour.MyInstance.enemyData = Resources.Load<EnemyBehaviourData>(data.MyPlayerData.EnemyDataName);
+        Boss_Behaviour.MyInstance.isDeath = data.MyPlayerData.EnemyDeath;
+        // Boss_Behaviour.MyInstance.isDeath = data.MyPlayerData.EnemyDeathState;
+
     }
+
+    
 
     
 

@@ -42,6 +42,7 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions, Inpu
         inputActions = new InputActions();
 
         inputActions.Gameplay.SetCallbacks(this);
+        inputActions.PauseMenu.SetCallbacks(this);
 
         int count = Enum.GetValues(typeof(CombatInputs)).Length;
         AttackInputs = new bool[count];
@@ -76,12 +77,13 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions, Inpu
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
+    public void SwitchToDynamicUpdateMode() => InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInDynamicUpdate;
+    public void SwitchToFixedUpdateMode() => InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInFixedUpdate;
     public void DisableAllInput() => inputActions.Disable();
 
     public void EnableGameplayInput() => SwitchActionMap(inputActions.Gameplay, false);
     public void EnablePauseInput() => SwitchActionMap(inputActions.PauseMenu, true);
-    public void SwitchToDynamicUpdateMode() => InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInDynamicUpdate;
-    public void SwitchToFixedUpdateMode() => InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInFixedUpdate;
+    
 #endregion
 
 #region MOVEMENT INPUT
@@ -189,6 +191,7 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions, Inpu
             AttackInputs[(int)CombatInputs.fireElement] = false;
         }
     }
+#endregion
 
     public void OnPause(InputAction.CallbackContext context)
     {
@@ -220,5 +223,4 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions, Inpu
         secondary,
         fireElement
     }
-#endregion
 }

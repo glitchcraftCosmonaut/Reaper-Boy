@@ -95,7 +95,7 @@ public class PlayerInAirState : PlayerState
         }
         else if(dashInput && player.DashState.CheckIfCanDash())
         {
-            if(PlayerEnergy.Instance.energy.Value == 0.1) return;
+            if(PlayerEnergy.Instance.energy.Value == 0) return;
             PlayerEnergy.Instance.Use(player.playerEnergyCost.Value);
             stateMachine.ChangeState(player.DashState);
         }

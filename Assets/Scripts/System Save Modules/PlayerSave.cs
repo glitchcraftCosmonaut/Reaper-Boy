@@ -12,6 +12,8 @@ public class PlayerSave : MonoBehaviour
     public HashSet<string> UpgradeStates { get; set; } = new HashSet<string>();
     public HashSet<string> DeathState { get; set; } = new HashSet<string>();
     public EnemySave enemySave;
+    // public List<Objects> Objects { get; set; } = new List<Objects>();
+
 
     
 
@@ -28,14 +30,15 @@ public class PlayerSave : MonoBehaviour
 
     public void SavePlayer(PlayerSaveData data)
     {
-        data.MyPlayerData = new PlayerDatas(Player.MyInstance.transform.position, Player.MyInstance.stageName, Player.MyInstance.hasDash, Player.MyInstance.UpgradeStates, DeathState);
+        // data.MyPlayerData = new PlayerDatas(Player.MyInstance.transform.position, Player.MyInstance.stageName, 
+        // Player.MyInstance.hasDash, Boss_Behaviour.MyInstance.enemyData, Boss_Behaviour.MyInstance.isDeath);
     }
     public void LoadPlayer(PlayerSaveData data)
     {
         Player.MyInstance.transform.position = new Vector3(data.MyPlayerData.MyX, data.MyPlayerData.MyY,data.MyPlayerData.MyZ);
         Player.MyInstance.stageName = data.MyPlayerData.MySceneName;
         Player.MyInstance.hasDash = data.MyPlayerData.MyDash;
-        Player.MyInstance.UpgradeStates = data.MyPlayerData.UpgradeStates;
+        // Player.MyInstance.UpgradeStates = data.MyPlayerData.UpgradeStates;
     }
 
     

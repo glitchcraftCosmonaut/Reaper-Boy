@@ -7,7 +7,7 @@ public class SavePoint : InteractionSystem
     Animator saveAnim;
     Animation saveAnimation;
 
-    public override void Start()
+    public void Awake()
     {
         saveAnim = GetComponent<Animator>();
     }

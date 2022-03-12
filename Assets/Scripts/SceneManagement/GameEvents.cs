@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class GameEvents : MonoBehaviour
 {
-    // public static System.Action<Item> ItemAddedToInventory;
+    // public static System.Action<Objects> ObjectAddedToInventory;
     public static System.Action<string> TooltipActivated;
     public static System.Action<PlayerSaveData> Data;
     public static System.Action TooltipDeactivated;
     public static System.Action SaveInitiated;
     public static System.Action LoadInitiated;
 
-    // public static void OnItemAddedToInventory(Item item)
+    // public static void OnItemAddedToInventory(Objects objects)
     // {
-    //     ItemAddedToInventory?.Invoke(item);
+    //     ObjectAddedToInventory?.Invoke(objects);
     // }
     public static void OnPlayerSetPos(PlayerSaveData data)
     {

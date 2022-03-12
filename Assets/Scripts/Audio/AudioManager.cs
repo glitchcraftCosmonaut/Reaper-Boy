@@ -12,14 +12,14 @@ public class AudioManager : Singleton<AudioManager>
     public Slider backgroundSlider, soundEffectSlider;
     private float backgroundFloat, soundEffectFloat;
     public AudioSource backgroundAudio;
-    public AudioSource[] soundEffectAudio;
-    [SerializeField] AudioDatas backGroundMusic;
+    AudioSetting audioSetting;
 
     const float MIN_PITCH = 0.9f;
     const float MAX_PITCH = 1.1f;
 
     private void Start()
     {
+        audioSetting = GetComponent<AudioSetting>();
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
 
         if(firstPlayInt == 0)
@@ -55,7 +55,8 @@ public class AudioManager : Singleton<AudioManager>
     }
     public void UpdateSound()
     {
-        backgroundAudio.volume = backgroundSlider.value;
+        audioSetting.backgroundAudio.volume = backgroundSlider.value;
+        audioSetting.sFXPlayer.volume = soundEffectSlider.value;
         // backGroundMusic.backgroundMusic.volume = backgroundSlider.value;
         // audioDatas.volume = soundEffectSlider.value;
         // backGroundMusic.volume = backgroundSlider.value;

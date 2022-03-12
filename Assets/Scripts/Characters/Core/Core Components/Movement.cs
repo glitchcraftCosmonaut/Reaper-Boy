@@ -37,7 +37,7 @@ public class Movement : CoreComponent
         SetFinalVelocity();
     }
 
-    public void SetVelocity(float velocity, Vector2 angle, int direction)
+    public void SetVelocity(float velocity, Vector2 angle, float direction)
     {
         angle.Normalize();
         workspace.Set(angle.x * velocity * direction, angle.y * velocity);

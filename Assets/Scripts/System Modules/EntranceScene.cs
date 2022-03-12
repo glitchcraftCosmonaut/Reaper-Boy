@@ -7,16 +7,6 @@ public class EntranceScene : MonoBehaviour
 {
     // public string lastExitName;
     public string entrancePassword;
-
-    // private void Start()
-    // {
-    //     // if(PlayerPrefs.GetString("LastExitName") == lastExitName)
-    //     // {
-    //     //     Player.MyInstance.transform.position = transform.position;
-    //     // }
-        
-    // }
-    // public GameObject door;
     private void Start() 
     {
         if(PlayerManager.Instance.scenePassword == entrancePassword)
