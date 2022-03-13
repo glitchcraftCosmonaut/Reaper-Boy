@@ -13,6 +13,9 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions, Inpu
     public event UnityAction onPause = delegate {};
     public event UnityAction onUnPause = delegate {};
     public event UnityAction onInteract = delegate {};
+    public event UnityAction onShootFire = delegate {};
+    public event UnityAction onStopShootFire = delegate {};
+
     public Vector2 RawMovementInput { get; private set; }
     public Vector2 RawDashDirectionInput { get; private set; }
     public int NormInputX { get; private set; }
@@ -21,6 +24,8 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions, Inpu
     public bool JumpInputStop { get; private set; }
     public bool DashInput { get; private set; }
     public bool DashInputStop { get; private set; }
+    public bool ShootInput {get; private set;}
+    public bool ShootInputStop {get; private set;}
     public bool[] AttackInputs { get; private set; }
 
 
@@ -141,13 +146,6 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions, Inpu
     }
 
     public void UseDashInput() => DashInput = false;
-    private void CheckDashInputHoldTime()
-    {
-        if(Time.time >= dashInputStartTime + inputHoldTime)
-        {
-            DashInput = false;
-        }
-    }
 
 
     #endregion
@@ -191,6 +189,22 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions, Inpu
             AttackInputs[(int)CombatInputs.fireElement] = false;
         }
     }
+
+    public void OnShootingFire(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            AttackInputs[(int)CombatInputs.shootFire] = true;
+            onShootFire.Invoke();
+        }
+        if(context.canceled)
+        {
+            AttackInputs[(int)CombatInputs.shootFire] = false;
+            onStopShootFire.Invoke();
+        }
+    }
+    public void UseShootInput() => ShootInput = false;
+
 #endregion
 
     public void OnPause(InputAction.CallbackContext context)
@@ -217,10 +231,12 @@ public class PlayerInput : ScriptableObject, InputActions.IGameplayActions, Inpu
         }
     }
 
+
     public enum CombatInputs
     {
         primary,
         secondary,
-        fireElement
+        fireElement,
+        shootFire
     }
 }

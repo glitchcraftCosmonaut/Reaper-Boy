@@ -3,6 +3,8 @@ using static PlayerInput;
 
 public class Enemy_Behaviour : Character, IDamageable
 {
+    [SerializeField] AudioData hitSFX;
+    [SerializeField] AudioData gruntSFX;
     public EnemyBehaviourData enemyData;
     public Transform leftLimit;
     public Transform rightLimit;
@@ -20,13 +22,12 @@ public class Enemy_Behaviour : Character, IDamageable
     private float intTimer; // initial timer
 
 
-
     protected override void OnEnable()
     {
         base.OnEnable();
+        health.Value = 1;
         SelectTarget();
         lootSpawner = GetComponent<LootSpawner>();
-        health.Value = 1;
         intTimer = enemyData.timer;
         anim = GetComponent<Animator>();
         sp = GetComponentInChildren<SpriteRenderer>();
@@ -47,6 +48,7 @@ public class Enemy_Behaviour : Character, IDamageable
         if(enemyData.inRange)
         {
             EnemyLogic();
+
         }
 
     }
@@ -55,6 +57,7 @@ public class Enemy_Behaviour : Character, IDamageable
         base.Die();
         lootSpawner.Spawn(transform.position);
         gameObject.SetActive(false);
+        PoolManager.Release(deathVFX, transform.position);
     }
 
     void EnemyLogic()
@@ -155,12 +158,15 @@ public class Enemy_Behaviour : Character, IDamageable
 
     public void Damage(float amount)
     {
-        Debug.Log(amount + " Damage taken");
-        if(!Player.MyInstance.input.AttackInputs[(int)CombatInputs.fireElement])
+        if(Player.MyInstance.input.AttackInputs[(int)CombatInputs.secondary] || Player.MyInstance.input.AttackInputs[(int)CombatInputs.primary])
         {
             PlayerSpecialEnergy.Instance.Obtain(0.1f);
         }
-
+        AudioSetting.Instance.PlaySFX(hitSFX);
         TakeDamage(amount);
+    }
+    public void AnimationAttackEvent()
+    {
+        AudioSetting.Instance.PlaySFX(gruntSFX);
     }
 }

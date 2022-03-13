@@ -10,6 +10,7 @@ public class PlayerGroundedState : PlayerState
     private bool JumpInput;
     private bool isGrounded;
     private bool dashInput;
+    private bool shootInput;
 
 
 
@@ -42,14 +43,17 @@ public class PlayerGroundedState : PlayerState
         yInput = player.input.NormInputY;
         JumpInput = player.input.JumpInput;
         dashInput = player.input.DashInput;
+        shootInput = player.input.ShootInput;
 
 
         if (player.input.AttackInputs[(int)CombatInputs.primary])
         {
+            AudioSetting.Instance.PlaySFX(player.slashSFX);
             stateMachine.ChangeState(player.PrimaryAttackState);
         }
         if (player.input.AttackInputs[(int)CombatInputs.secondary])
         {
+            AudioSetting.Instance.PlaySFX(player.slashSFX);
             stateMachine.ChangeState(player.SecondaryAttackState);
         }
         if (player.input.AttackInputs[(int)CombatInputs.fireElement] && player.hasFireAttack)
@@ -57,6 +61,12 @@ public class PlayerGroundedState : PlayerState
             if(PlayerSpecialEnergy.Instance.specialEnergy.Value == 0) return;
             PlayerSpecialEnergy.Instance.Use(player.playerEnergyCost.Value);
             stateMachine.ChangeState(player.FlameAttackState);
+        }
+        if (player.input.AttackInputs[(int)CombatInputs.shootFire])
+        {
+            if(PlayerSpecialEnergy.Instance.specialEnergy.Value == 0) return;
+            PlayerSpecialEnergy.Instance.Use(player.playerEnergyCost.Value);
+            stateMachine.ChangeState(player.ShootFireState);
         }
         if (JumpInput && player.JumpState.CanJump())
         {
@@ -70,6 +80,7 @@ public class PlayerGroundedState : PlayerState
         else if (dashInput && player.DashState.CheckIfCanDash())
         {
             if(PlayerEnergy.Instance.energy.Value == 0) return;
+            AudioSetting.Instance.PlaySFX(player.dashSFX);
             PlayerEnergy.Instance.Use(player.playerEnergyCost.Value);
             stateMachine.ChangeState(player.DashState);
         }

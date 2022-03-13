@@ -81,6 +81,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ShootingFire"",
+                    ""type"": ""Button"",
+                    ""id"": ""8600ba21-1558-40e9-925b-0abced34c868"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -358,6 +366,28 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6bad11c9-fffa-4f94-b4ec-8b2fb2dac775"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""ShootingFire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da6a1da6-8dac-4845-ac19-239d506e30a3"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""ShootingFire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -418,6 +448,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Gameplay_FireAttack = m_Gameplay.FindAction("FireAttack", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
+        m_Gameplay_ShootingFire = m_Gameplay.FindAction("ShootingFire", throwIfNotFound: true);
         // PauseMenu
         m_PauseMenu = asset.FindActionMap("PauseMenu", throwIfNotFound: true);
         m_PauseMenu_UnPause = m_PauseMenu.FindAction("UnPause", throwIfNotFound: true);
@@ -478,6 +509,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_FireAttack;
     private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_Interact;
+    private readonly InputAction m_Gameplay_ShootingFire;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -490,6 +522,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @FireAttack => m_Wrapper.m_Gameplay_FireAttack;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
+        public InputAction @ShootingFire => m_Wrapper.m_Gameplay_ShootingFire;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -523,6 +556,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
+                @ShootingFire.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShootingFire;
+                @ShootingFire.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShootingFire;
+                @ShootingFire.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShootingFire;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -551,6 +587,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @ShootingFire.started += instance.OnShootingFire;
+                @ShootingFire.performed += instance.OnShootingFire;
+                @ShootingFire.canceled += instance.OnShootingFire;
             }
         }
     }
@@ -607,6 +646,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnFireAttack(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnShootingFire(InputAction.CallbackContext context);
     }
     public interface IPauseMenuActions
     {

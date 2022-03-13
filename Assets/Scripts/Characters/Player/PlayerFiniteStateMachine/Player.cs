@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,6 +21,7 @@ public class Player : Character
     public PlayerAttackState PrimaryAttackState { get; private set; }
     public PlayerAttackState SecondaryAttackState { get; private set; }
     public PlayerAttackState FlameAttackState { get; private set; }
+    public PlayerAttackState ShootFireState {get; private set;}
 
     #endregion
 
@@ -48,17 +50,28 @@ public class Player : Character
     Coroutine energyRegenerateCoroutine;
     WaitForSeconds waitEnergyRegenerateTime;
 
+     //SFX
+    public AudioData dashSFX;
+    public AudioData shootSFX;
+    public AudioData slashSFX;
+
 
     private Vector2 knockbackAngle;
     private float knockbackStrength;
     private Rigidbody2D rb;
     public Rigidbody2D RB { get; private set; }
+    [SerializeField] GameObject projectile;
+    [SerializeField] Transform muzzleTop;
     public Weapon[] weapons;
+    [SerializeField] float fireInterval = 0.2f;
+
     public bool hasDash = false;
     public bool hasFireAttack = false;
     public Vector2 boxSize = new Vector2(0.1f,1f);
     public Scene sceneName;
     public string stageName;
+    WaitForSeconds waitForFireInterval;
+
     #endregion
 
     Vector2 moveDirection;
@@ -84,6 +97,8 @@ public class Player : Character
         defaultMat2D = GetComponent<SpriteRenderer>().material;
         stageName = SceneManager.GetActiveScene().name;
         waitEnergyRegenerateTime = new WaitForSeconds(energyRegenerateTime);
+        waitForFireInterval = new WaitForSeconds(fireInterval);
+
         #endregion
 
 
@@ -100,6 +115,7 @@ public class Player : Character
         PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         FlameAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+        ShootFireState = new PlayerAttackState(this, StateMachine,playerData,"attack");
         #endregion
         
     }
@@ -109,11 +125,15 @@ public class Player : Character
         base.OnEnable();
         health.Value = 1;
         input.onInteract += CheckInteraction;
+        input.onShootFire += ShootFire;
+        // input.onStopShootFire += ShootFire;
         sp.material = defaultMat2D;
     }
     private void OnDisable()
     {
         input.onInteract -= CheckInteraction;
+        input.onShootFire -= ShootFire;
+        input.onStopShootFire -= ShootFire;
     }
     
     private void Start()
@@ -128,6 +148,7 @@ public class Player : Character
         PrimaryAttackState.SetWeapon(weapons[(int)CombatInputs.primary]);
         SecondaryAttackState.SetWeapon(weapons[(int)CombatInputs.secondary]);
         FlameAttackState.SetWeapon(weapons[(int)CombatInputs.fireElement]);
+        ShootFireState.SetWeapon(weapons[(int)CombatInputs.shootFire]);
         StateMachine.Initialize(IdleState);
         if(gameObject.activeSelf)
         {
@@ -163,6 +184,7 @@ public class Player : Character
     {
         GameManager.onGameOver?.Invoke();
         GameManager.GameState = GameState.GameOver;
+        PoolManager.Release(deathVFX, transform.position);
         base.Die();
         gameObject.SetActive(false);
     }
@@ -182,6 +204,28 @@ public class Player : Character
                     return;
                 }
             }
+        }
+    }
+
+    public void ShootFire()
+    {
+        // StartCoroutine(nameof(FireCoroutine));
+        // PoolManager.Release(missilePrefab, muzzleTransform.position);
+        if(PlayerSpecialEnergy.Instance.specialEnergy.Value == 0) return;
+        PoolManager.Release(projectile, muzzleTop.position, muzzleTop.rotation);
+        AudioSetting.Instance.PlaySFX(shootSFX);
+
+    }
+
+    IEnumerator FireCoroutine()
+    {
+        while(true)
+        {
+            // PlayerProjectileNRGSys.Instance.Use(projectileCost);
+            
+            PoolManager.Release(projectile, muzzleTop.position);
+            // AudioManager.Instance.PlayRandomSFX(projectileLaunchSFX);
+            yield return  waitForFireInterval;   
         }
     }
 

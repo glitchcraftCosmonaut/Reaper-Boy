@@ -11,12 +11,15 @@ public class SaveGameManager : PersistentSingleton<SaveGameManager>
     // public HashSet<string> UpgradeStates { get; set; } = new HashSet<string>();
     public HashSet<string> DeathStates { get; set; } = new HashSet<string>();
 
+    public SpecialPickUp specialPickUp;
+
     private int currentSceneIndex;
     const string PLAYER_KEY = "/player";
 
     protected override void Awake()
     {
         base.Awake();
+        specialPickUp = FindObjectOfType<SpecialPickUp>();
         GameEvents.SaveInitiated += Save;
         GameEvents.LoadInitiated += Load;
         Load();
@@ -26,7 +29,8 @@ public class SaveGameManager : PersistentSingleton<SaveGameManager>
     {
         data.MyPlayerData = new PlayerDatas(
             Player.MyInstance.transform.position,Player.MyInstance.stageName, 
-            Player.MyInstance.hasDash, Boss_Behaviour.MyInstance.enemyData, Boss_Behaviour.MyInstance.isDeath, Player.MyInstance.hasFireAttack
+            Player.MyInstance.hasDash, Boss_Behaviour.MyInstance.enemyData, Boss_Behaviour.MyInstance.isDeath, Player.MyInstance.hasFireAttack,
+            specialPickUp.isPickedUp, specialPickUp.lootData
             );
     }
     public void LoadPlayer(PlayerSaveData data)
@@ -37,7 +41,9 @@ public class SaveGameManager : PersistentSingleton<SaveGameManager>
         Player.MyInstance.hasFireAttack = data.MyPlayerData.MyFireAttack;
         // Player.MyInstance.UpgradeStates = data.MyPlayerData.UpgradeStates;
         Boss_Behaviour.MyInstance.enemyData = Resources.Load<EnemyBehaviourData>(data.MyPlayerData.EnemyDataName);
-        Boss_Behaviour.MyInstance.isDeath = data.MyPlayerData.EnemyDeath;
+        Boss_Behaviour.MyInstance.enemyData.isDeath = data.MyPlayerData.EnemyDeath;
+        specialPickUp.lootData.isPickedUp = data.MyPlayerData.SpecialPickUp;
+        specialPickUp.isPickedUp = data.MyPlayerData.SpecialPickUp;
         // Boss_Behaviour.MyInstance.isDeath = data.MyPlayerData.EnemyDeathState;
 
     }

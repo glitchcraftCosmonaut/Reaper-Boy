@@ -5,6 +5,8 @@ using static PlayerInput;
 
 public class Boss_Behaviour : Character, IDamageable
 {
+
+    [SerializeField] AudioData hitSFX;
     public PlayerSaveData data { get; set; } = new PlayerSaveData();
     public EnemyBehaviourData enemyData;
     BossHealthBar healthBar;
@@ -22,6 +24,8 @@ public class Boss_Behaviour : Character, IDamageable
     [HideInInspector] public bool enableAct;
     [HideInInspector] public Canvas healthBarCanvas;
     int atkStep;
+
+    const string PLAYER_KEY = "/player";
 
     public static Boss_Behaviour instance;
     public static Boss_Behaviour MyInstance
@@ -46,33 +50,28 @@ public class Boss_Behaviour : Character, IDamageable
         sp = GetComponentInChildren<SpriteRenderer>();
         defaultMat2D = GetComponentInChildren<SpriteRenderer>().material;
         FreezeBoss();
-        // enemyData.isDeath = isDeath;
-        // if(health.Value > 0)
-        // {
-        //     enemyData.isDeath = isDeath;
-        // }
-        // if(health.Value == 0)
-        // {
-        //     isDeath = enemyData.isDeath;
-        // }
-        // if(isDeath == true)
-        // {
-        //     isDeath = enemyData.isDeath;
-        //     bossRB.bodyType = RigidbodyType2D.Static;
-        //     bossCollider.enabled = false;
-        //     sp.enabled = false;
-        //     healthBarCanvas.enabled = false;
-        // }
-        if(SaveGameManager.Instance.DeathStates.Contains(uniqueID.ID))
+        if(SaveSystem.SaveExists(PLAYER_KEY))
         {
-            isDeath = enemyData.isDeath;
-            bossRB.bodyType = RigidbodyType2D.Static;
-            bossCollider.enabled = false;
-            sp.enabled = false;
-            healthBarCanvas.enabled = false;
+            data = SaveSystem.Load<PlayerSaveData>(PLAYER_KEY);
+            Debug.Log(data.MyPlayerData.EnemyDeath);
+            if(data.MyPlayerData.EnemyDeath == true)
+            {
+                isDeath = enemyData.isDeath;
+                bossRB.bodyType = RigidbodyType2D.Static;
+                health.Value = 0;
+                bossCollider.enabled = false;
+                sp.enabled = false;
+                healthBarCanvas.enabled = false;
+            }
+            if(data.MyPlayerData.EnemyDeath == false)
+            {
+                enemyData.isDeath = isDeath;
+                health.Value = 1;
+            }
         }
-        else
+        if(!SaveSystem.SaveExists(PLAYER_KEY))
         {
+            enemyData.isDeath = isDeath;
             health.Value = 1;
         }
 
@@ -83,18 +82,20 @@ public class Boss_Behaviour : Character, IDamageable
         base.OnEnable();
     }
 
+
     public override void Die()
     {
         base.Die();
-        SaveGameManager.Instance.DeathStates.Add(uniqueID.ID);
         healthBarCanvas.enabled = false;
         bossAnim.SetBool("IsDeath", true);
-        enemyData.isDeath = true;
-        isDeath = enemyData.isDeath;
+        isDeath = true;
+        enemyData.isDeath = isDeath;
+        PoolManager.Release(deathVFX, transform.position, Quaternion.identity);
         enableAct = false;
         bossRB.bodyType = RigidbodyType2D.Static;
         bossCollider.enabled = false;
         sp.enabled = false;
+        GameEvents.OnSaveInitiated();
 
     }
     void FlipBoss()
@@ -144,7 +145,7 @@ public class Boss_Behaviour : Character, IDamageable
 
     void BossAtk()
     {
-        if((target.position - transform.position).magnitude < 5 && isDeath == false)
+        if((target.position - transform.position).magnitude < 5 && isDeath == false && GameManager.GameState != GameState.GameOver)
         {
             switch(atkStep)
             {
@@ -175,10 +176,15 @@ public class Boss_Behaviour : Character, IDamageable
     public void Damage(float amount)
     {
         Debug.Log(amount + " Damage taken");
-        if(!Player.MyInstance.input.AttackInputs[(int)CombatInputs.fireElement])
+        if(Player.MyInstance.input.AttackInputs[(int)CombatInputs.secondary] || Player.MyInstance.input.AttackInputs[(int)CombatInputs.primary])
         {
             PlayerSpecialEnergy.Instance.Obtain(0.1f);
         }
         TakeDamage(amount);
+    }
+
+    public void AnimationAttackEvent()
+    {
+        AudioSetting.Instance.PlaySFX(hitSFX);
     }
 }

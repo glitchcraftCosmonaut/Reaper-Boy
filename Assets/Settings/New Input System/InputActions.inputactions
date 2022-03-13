@@ -68,6 +68,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ShootingFire",
+                    "type": "Button",
+                    "id": "8600ba21-1558-40e9-925b-0abced34c868",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -343,6 +351,28 @@
                     "processors": "",
                     "groups": "PC",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6bad11c9-fffa-4f94-b4ec-8b2fb2dac775",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "ShootingFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da6a1da6-8dac-4845-ac19-239d506e30a3",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "ShootingFire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

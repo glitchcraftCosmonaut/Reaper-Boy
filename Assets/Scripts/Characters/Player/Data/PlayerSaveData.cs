@@ -15,6 +15,7 @@ public class PlayerDatas
 {
     public string PlayerDashDataName{get; set;}
     public string EnemyDataName{get; set;}
+    public string LootDataName {get; set;}
     public string playerDataName{get; set;}
     public string MySceneName {get; set;}
     // public HashSet<string> UpgradeStates { get; set; } = new HashSet<string>();
@@ -27,10 +28,12 @@ public class PlayerDatas
     public float MyY {get; set;}
     public float MyZ {get; set;}
     public bool EnemyDeath {get; set;}
+    public bool SpecialPickUp {get; set;}
     public int currentSceneIndex;
 
 
-    public PlayerDatas(Vector3 position,string sceneName, bool dashData, EnemyBehaviourData enemyBehaviourData, bool enemyDeath, bool fireAttack)
+    public PlayerDatas(Vector3 position,string sceneName, bool dashData, 
+    EnemyBehaviourData enemyBehaviourData, bool enemyDeath, bool fireAttack, bool pickedUp, LootData lootData)
     {
         // PlayerDashDataName = dashData.name;
         this.MyDash = dashData;
@@ -40,10 +43,10 @@ public class PlayerDatas
         this.MyX = position.x;
         this.MyY = position.y;
         this.MyZ = position.z;
-        // this.UpgradeStates = upgraded;
-        // this.EnemyDeath = enemyDeath;
         this.EnemyDataName = enemyBehaviourData.name;
-        this.EnemyDeath = enemyBehaviourData.isDeath;
+        this.EnemyDeath = enemyDeath;
+        this.SpecialPickUp = pickedUp;
+        this.LootDataName = lootData.name;
 
         // this.EnemyDeathState = enemyDeath;
     }
