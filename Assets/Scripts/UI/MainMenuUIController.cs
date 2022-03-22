@@ -125,11 +125,11 @@ public class MainMenuUIController : MonoBehaviour
     }
     private void OnButtonYesClick()
     {
+        SaveSystem.SeriouslyDeleteAllSaveFiles();
         confirmNewGameCanvas.enabled = false;
         buttonYes.enabled = false;
         buttonNo.enabled = false;
         SceneLoader.Instance.LoadGamePlayScene();
-        SaveSystem.SeriouslyDeleteAllSaveFiles();
     }
     private void OnButtonNoClick()
     {

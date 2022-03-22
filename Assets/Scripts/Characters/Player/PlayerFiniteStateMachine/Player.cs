@@ -29,6 +29,7 @@ public class Player : Character
     public Core Core { get; private set; }
     public Animator Anim { get; private set; }
     public BoxCollider2D MovementCollider { get; private set; }
+
     // public HashSet<string> UpgradeStates { get; set; } = new HashSet<string>();
 
     #endregion
@@ -61,16 +62,22 @@ public class Player : Character
     private Rigidbody2D rb;
     public Rigidbody2D RB { get; private set; }
     [SerializeField] GameObject projectile;
+    public GameObject dashAfterImage;
     [SerializeField] Transform muzzleTop;
     public Weapon[] weapons;
-    [SerializeField] float fireInterval = 0.2f;
+
+    bool isTakingDamage;
+    bool isInvincible;
+    // [SerializeField] float shootCooldownTime = 1f;
+
+    // public bool isShootReady = true;
+
 
     public bool hasDash = false;
     public bool hasFireAttack = false;
     public Vector2 boxSize = new Vector2(0.1f,1f);
     public Scene sceneName;
     public string stageName;
-    WaitForSeconds waitForFireInterval;
 
     #endregion
 
@@ -93,11 +100,11 @@ public class Player : Character
         #region Component
         Core = GetComponentInChildren<Core>();
         rb = GetComponent<Rigidbody2D>();
-        sp = GetComponent<SpriteRenderer>();
-        defaultMat2D = GetComponent<SpriteRenderer>().material;
+        sp = GetComponentInChildren<SpriteRenderer>();
+        defaultMat2D = GetComponentInChildren<SpriteRenderer>().material;
         stageName = SceneManager.GetActiveScene().name;
         waitEnergyRegenerateTime = new WaitForSeconds(energyRegenerateTime);
-        waitForFireInterval = new WaitForSeconds(fireInterval);
+
 
         #endregion
 
@@ -111,7 +118,7 @@ public class Player : Character
         WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "InAir");
         WallSlideState = new PlayerWallSlideState(this, StateMachine, playerData, "WallSlide");
         LandState = new PlayerLandState(this, StateMachine, playerData, "Land");
-        DashState = new PlayerDashState(this, StateMachine, playerDashData, "InAir");
+        DashState = new PlayerDashState(this, StateMachine, playerDashData, "Dash");
         PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         FlameAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
@@ -128,6 +135,17 @@ public class Player : Character
         input.onShootFire += ShootFire;
         // input.onStopShootFire += ShootFire;
         sp.material = defaultMat2D;
+        if(gameObject.activeSelf)
+        {
+            if(regenerateEnergy)
+            {
+                // if(energyRegenerateCoroutine != null)
+                // {
+                //     StopCoroutine(energyRegenerateCoroutine);
+                // }
+                energyRegenerateCoroutine = StartCoroutine(PlayerEnergy.Instance.EnergyRegenCoroutine(waitEnergyRegenerateTime, energyRegeneratePercent));
+            }
+        }
     }
     private void OnDisable()
     {
@@ -150,17 +168,7 @@ public class Player : Character
         FlameAttackState.SetWeapon(weapons[(int)CombatInputs.fireElement]);
         ShootFireState.SetWeapon(weapons[(int)CombatInputs.shootFire]);
         StateMachine.Initialize(IdleState);
-        if(gameObject.activeSelf)
-        {
-            if(regenerateEnergy)
-            {
-                // if(energyRegenerateCoroutine != null)
-                // {
-                //     StopCoroutine(energyRegenerateCoroutine);
-                // }
-                energyRegenerateCoroutine = StartCoroutine(PlayerEnergy.Instance.EnergyRegenCoroutine(waitEnergyRegenerateTime, energyRegeneratePercent));
-            }
-        }
+        
     }
 
     private void Update()
@@ -174,11 +182,13 @@ public class Player : Character
     }
     public override void TakeDamage(float damage)
     {
-        //this is work but improve this soon maybe
-        base.TakeDamage(enemyData.attackDamage);
-        rb.velocity = Vector2.up * 15;
-        // IKnockbackable knockbackable = GetComponentInChildren<IKnockbackable>();
-        // knockbackable.Knockback(knockbackAngle, knockbackStrength, Core.Movement.FacingDirection * -1);     
+        if(gameObject.activeSelf && !isInvincible)
+        {
+            StartCoroutine(FlashAfterDamage());
+            base.TakeDamage(enemyData.attackDamage);
+            Invincible(true);
+            rb.velocity = Vector2.up * 15;
+        }  
     }
     public override void Die()
     {
@@ -207,27 +217,62 @@ public class Player : Character
         }
     }
 
+    void StopDamageAnimation()
+    {
+        // this function is called at the end of the Hit animation
+        // and we reset the animation because it doesn't loop otherwise
+        // we can end up stuck in it
+        isTakingDamage = false;
+        StartCoroutine(FlashAfterDamage());
+    }
+
+    private IEnumerator FlashAfterDamage()
+    {
+        float flashDelay = 0.0833f;
+        // toggle transparency
+        for (int i = 0; i < 10; i++)
+        {
+            sp.color = Color.clear;
+            yield return new WaitForSeconds(flashDelay);
+            sp.color = Color.white;
+            yield return new WaitForSeconds(flashDelay);
+        }
+        // no longer invincible
+        Invincible(false);
+    }
+
+    public void Invincible(bool invincibility)
+    {
+        isInvincible = invincibility;
+    }
+
     public void ShootFire()
     {
         // StartCoroutine(nameof(FireCoroutine));
         // PoolManager.Release(missilePrefab, muzzleTransform.position);
         if(PlayerSpecialEnergy.Instance.specialEnergy.Value == 0) return;
+        // isShootReady = false;
         PoolManager.Release(projectile, muzzleTop.position, muzzleTop.rotation);
+        PlayerSpecialEnergy.Instance.Use(playerEnergyCost.Value);
         AudioSetting.Instance.PlaySFX(shootSFX);
-
+        // if(PlayerSpecialEnergy.Instance.specialEnergy.Value > 0)
+        // {
+        //     StartCoroutine(CoolDownCoroutine());
+        // }
     }
+    // public IEnumerator CoolDownCoroutine()
+    // {
+    //     var cooldownValue = shootCooldownTime;
 
-    IEnumerator FireCoroutine()
-    {
-        while(true)
-        {
-            // PlayerProjectileNRGSys.Instance.Use(projectileCost);
-            
-            PoolManager.Release(projectile, muzzleTop.position);
-            // AudioManager.Instance.PlayRandomSFX(projectileLaunchSFX);
-            yield return  waitForFireInterval;   
-        }
-    }
+    //     while(cooldownValue > 0f)
+    //     {
+    //         cooldownValue = Mathf.Max(cooldownValue - Time.deltaTime, 0f);
+
+    //         yield return null;
+    //     }
+
+    //     isShootReady = true;
+    // }
 
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
 

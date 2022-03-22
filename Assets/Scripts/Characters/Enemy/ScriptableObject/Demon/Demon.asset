@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Demon
   m_EditorClassIdentifier: 
   attackDistance: 3
-  attackDamage: 20
+  attackDamage: 10
   moveSpeed: 2
-  timer: 2
+  timer: 0.18605806
   inRange: 0
+  isDeath: 0

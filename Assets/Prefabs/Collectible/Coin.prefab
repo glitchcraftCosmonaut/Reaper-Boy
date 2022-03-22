@@ -168,7 +168,7 @@ Transform:
   m_GameObject: {fileID: 3521463525825176085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.43, y: 0.27973047, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 3521463524863100624}
   - {fileID: 3521463524866692781}
@@ -243,9 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ab373da2b7f8d43bb173acf148fc14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootData: {fileID: 11400000, guid: 8344f6f2df3043e40af633ce46f42c79, type: 2}
-  isPickedUp: 0
-  coingPoint: 1
+  coinPoint: 1
   coinPickUp:
     audioClip: {fileID: 8300000, guid: 9efda4c269064644e811b117b4664022, type: 3}
     volume: 1

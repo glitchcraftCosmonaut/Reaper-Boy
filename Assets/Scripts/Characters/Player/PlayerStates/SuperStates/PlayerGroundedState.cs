@@ -12,6 +12,9 @@ public class PlayerGroundedState : PlayerState
     private bool dashInput;
     private bool shootInput;
 
+    float atkCooldown = 1f;
+    float lastATK;
+
 
 
     public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
@@ -53,6 +56,8 @@ public class PlayerGroundedState : PlayerState
         }
         if (player.input.AttackInputs[(int)CombatInputs.secondary])
         {
+            if(Time.time - lastATK < atkCooldown) return;
+            lastATK = Time.time;
             AudioSetting.Instance.PlaySFX(player.slashSFX);
             stateMachine.ChangeState(player.SecondaryAttackState);
         }
@@ -65,7 +70,6 @@ public class PlayerGroundedState : PlayerState
         if (player.input.AttackInputs[(int)CombatInputs.shootFire])
         {
             if(PlayerSpecialEnergy.Instance.specialEnergy.Value == 0) return;
-            PlayerSpecialEnergy.Instance.Use(player.playerEnergyCost.Value);
             stateMachine.ChangeState(player.ShootFireState);
         }
         if (JumpInput && player.JumpState.CanJump())
@@ -90,11 +94,12 @@ public class PlayerGroundedState : PlayerState
     {
         base.PhysicsUpdate();
     }
-    // protected void Move(Vector2 moveInput)
-    // {
-    //     Debug.Log("Move");
-    //     xInput = moveInput.normalized.x;
-    //     moveDirection = new Vector2 (xInput, 0);
-    // }
+
+    public bool CheckIfCanSlash()
+    {
+        // return CanDash && player.playerDashData.hasDash && Time.time >= lastDashTime + playerDashData.dashCooldown;
+        return Time.time - lastATK < atkCooldown;
+    }
+    
 
 }

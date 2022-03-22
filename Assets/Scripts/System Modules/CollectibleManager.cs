@@ -12,7 +12,6 @@ public class CollectibleManager : PersistentSingleton<CollectibleManager>
 
     int specialCollectible;
     int currentSpecialCollectible;
-    public HashSet<string> CollectedItems { get; set; } = new HashSet<string>();
 
 
     Vector3 coinTextScale = new Vector3(1.2f, 1.2f, 1f);
@@ -86,10 +85,9 @@ public class CollectibleManager : PersistentSingleton<CollectibleManager>
 
         // public string playerName;
 
-        public PlayerCollectible(int coin, HashSet<string> collected, int specialCollectible)
+        public PlayerCollectible(int coin, int specialCollectible)
         {
             this.coin = coin;
-            this.CollectedItems = collected;
             this.specialCollectible = specialCollectible;
             // this.playerName = playerName;
         }
@@ -100,14 +98,13 @@ public class CollectibleManager : PersistentSingleton<CollectibleManager>
 
     public void SavePlayerScoreData(PlayerCollectData data)
     {
-        data.MyCollectible = new PlayerCollectible(coin, CollectedItems, specialCollectible);
+        data.MyCollectible = new PlayerCollectible(coin, specialCollectible);
     }
 
     public void LoadPlayerCollectibleData(PlayerCollectData data)
     {
         coin = data.MyCollectible.coin;
         specialCollectible = data.MyCollectible.specialCollectible;
-        CollectedItems = data.MyCollectible.CollectedItems;
     }
 
     public void Save()

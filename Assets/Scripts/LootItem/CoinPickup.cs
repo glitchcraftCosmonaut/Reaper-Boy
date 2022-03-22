@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinPickup : LootItem
 {
-    [SerializeField] int coingPoint = 1;
+    [SerializeField] int coinPoint = 1;
     [SerializeField] AudioData coinPickUp;
     protected override void PickUp()
     {
@@ -12,6 +12,6 @@ public class CoinPickup : LootItem
         // lootMessage.text = $"SCORE + {fullHealthScore}";
         base.PickUp();
         AudioSetting.Instance.PlaySFX(coinPickUp);
-        CollectibleManager.Instance.AddCoin(coingPoint);
+        CollectibleManager.Instance.AddCoin(coinPoint);
     }
 }

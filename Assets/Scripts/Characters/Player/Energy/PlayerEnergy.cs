@@ -22,13 +22,13 @@ public class PlayerEnergy : Singleton<PlayerEnergy>
     public void Obtain(float value)
     {
         if (energy.Value == MAX) return;
-        energy.Value = Mathf.Clamp(energy.Value + value, 0, 1);
+        energy.Value = Mathf.Clamp(energy.Value + value, 0.1f, 1);
         // energyBar.UpdateStates(energy, MAX);
     }
 
     public void Use(float value)
     {
-        energy.Value = Mathf.Clamp(energy.Value - value, 0, 1);
+        energy.Value = Mathf.Clamp(energy.Value - value, 0.1f, 1);
         
     }
 
@@ -37,11 +37,11 @@ public class PlayerEnergy : Singleton<PlayerEnergy>
         if(energy.Value == MAX) return;
         // health += value;
         // health = Mathf.Clamp(health, 0f, maxHealth);
-        energy.Value = Mathf.Clamp(energy.Value + value, 0f, 1);
+        energy.Value = Mathf.Clamp(energy.Value + value, 0.1f, 1);
     }
     public IEnumerator EnergyRegenCoroutine(WaitForSeconds waitTime, float percent)
     {
-        while(energy.Value < MAX || energy.Value == 0)
+        while(energy.Value < MAX)
         {
             yield return waitTime;
 

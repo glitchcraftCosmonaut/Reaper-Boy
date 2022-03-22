@@ -1,0 +1,1452 @@
+fileFormatVersion: 2
+guid: a92bcf382c379e34aa6f44ee6970f723
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4960245419719081620
+    second: grim-full-sheet (1)_0
+  - first:
+      213: -8267119111326321099
+    second: grim-full-sheet (1)_1
+  - first:
+      213: 164983611380415206
+    second: grim-full-sheet (1)_2
+  - first:
+      213: -651972932284277845
+    second: grim-full-sheet (1)_3
+  - first:
+      213: -5890526308559306685
+    second: grim-full-sheet (1)_4
+  - first:
+      213: 4452134074067427649
+    second: grim-full-sheet (1)_5
+  - first:
+      213: 2663438397411338497
+    second: grim-full-sheet (1)_6
+  - first:
+      213: -7560413421145433375
+    second: grim-full-sheet (1)_7
+  - first:
+      213: 8546854712727592684
+    second: grim-full-sheet (1)_8
+  - first:
+      213: -9183299845982342820
+    second: grim-full-sheet (1)_9
+  - first:
+      213: -5524064239983841415
+    second: grim-full-sheet (1)_10
+  - first:
+      213: 3571251767762030994
+    second: grim-full-sheet (1)_11
+  - first:
+      213: -4158543751681362238
+    second: grim-full-sheet (1)_12
+  - first:
+      213: 7456798445819805718
+    second: grim-full-sheet (1)_13
+  - first:
+      213: 8774976357022062065
+    second: grim-full-sheet (1)_14
+  - first:
+      213: 7848310464991674352
+    second: grim-full-sheet (1)_15
+  - first:
+      213: 4734263894617537916
+    second: grim-full-sheet (1)_16
+  - first:
+      213: -1202502291954118787
+    second: grim-full-sheet (1)_17
+  - first:
+      213: 3301433189847158838
+    second: grim-full-sheet (1)_18
+  - first:
+      213: -1234391236867732296
+    second: grim-full-sheet (1)_19
+  - first:
+      213: 4976020295079399198
+    second: grim-full-sheet (1)_20
+  - first:
+      213: -3500467585879440820
+    second: grim-full-sheet (1)_21
+  - first:
+      213: -4786432522124083441
+    second: grim-full-sheet (1)_22
+  - first:
+      213: 2148170376823897713
+    second: grim-full-sheet (1)_23
+  - first:
+      213: -5781974669285763387
+    second: grim-full-sheet (1)_24
+  - first:
+      213: 5409494770939293379
+    second: grim-full-sheet (1)_25
+  - first:
+      213: 5574084187706025938
+    second: grim-full-sheet (1)_26
+  - first:
+      213: 8868423385236061268
+    second: grim-full-sheet (1)_27
+  - first:
+      213: 292113424193054050
+    second: grim-full-sheet (1)_28
+  - first:
+      213: 853154070905953464
+    second: grim-full-sheet (1)_29
+  - first:
+      213: -3117118207470167141
+    second: grim-full-sheet (1)_30
+  - first:
+      213: -11528484414272477
+    second: grim-full-sheet (1)_31
+  - first:
+      213: -8719261790883711813
+    second: grim-full-sheet (1)_32
+  - first:
+      213: -4879625531080398544
+    second: grim-full-sheet (1)_33
+  - first:
+      213: 5544003710591891104
+    second: grim-full-sheet (1)_34
+  - first:
+      213: -1236314775179330242
+    second: grim-full-sheet (1)_35
+  - first:
+      213: 3123746350458706909
+    second: grim-full-sheet (1)_36
+  - first:
+      213: 9088600870010766135
+    second: grim-full-sheet (1)_37
+  - first:
+      213: 8775839074130346975
+    second: grim-full-sheet (1)_38
+  - first:
+      213: -7732334077082644149
+    second: grim-full-sheet (1)_39
+  - first:
+      213: -6473520558482393290
+    second: grim-full-sheet (1)_40
+  - first:
+      213: 3856966426356783948
+    second: grim-full-sheet (1)_41
+  - first:
+      213: 2029838190823977059
+    second: grim-full-sheet (1)_42
+  - first:
+      213: -196550025500190533
+    second: grim-full-sheet (1)_43
+  - first:
+      213: -3097021827667664255
+    second: grim-full-sheet (1)_44
+  - first:
+      213: 5753096248232980693
+    second: grim-full-sheet (1)_45
+  - first:
+      213: -939260486471127652
+    second: grim-full-sheet (1)_46
+  - first:
+      213: -8186954204385933673
+    second: grim-full-sheet (1)_47
+  - first:
+      213: -1812956952671661125
+    second: grim-full-sheet (1)_48
+  - first:
+      213: -5041440883748296888
+    second: grim-full-sheet (1)_49
+  - first:
+      213: 3395479511195062485
+    second: grim-full-sheet (1)_50
+  - first:
+      213: 5805211479236985079
+    second: grim-full-sheet (1)_51
+  - first:
+      213: 4417100219530604843
+    second: grim-full-sheet (1)_52
+  - first:
+      213: 6172947056499819540
+    second: grim-full-sheet (1)_53
+  - first:
+      213: 277782112010454469
+    second: grim-full-sheet (1)_54
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c61c2ee321ba92bb0800000000000000
+      internalID: -4960245419719081620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 320
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5363d8528fa454d80800000000000000
+      internalID: -8267119111326321099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_2
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 320
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea371e68b32a4200800000000000000
+      internalID: 164983611380415206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_3
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 320
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bab9608821ab3f6f0800000000000000
+      internalID: -651972932284277845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_4
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 320
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 340ca3e1885a04ea0800000000000000
+      internalID: -5890526308559306685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_5
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 320
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 141a3391a5829cd30800000000000000
+      internalID: 4452134074067427649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_6
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 320
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 109a6d66c1f66f420800000000000000
+      internalID: 2663438397411338497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_7
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 320
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ead78ddc04041790800000000000000
+      internalID: -7560413421145433375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_8
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 320
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cee500bf3178c9670800000000000000
+      internalID: 8546854712727592684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_9
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 320
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c51b25ef17d5e8080800000000000000
+      internalID: -9183299845982342820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_10
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 320
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97f235b67d49653b0800000000000000
+      internalID: -5524064239983841415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29111fcbf82af8130800000000000000
+      internalID: 3571251767762030994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_12
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 256
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c6bc12ad72e946c0800000000000000
+      internalID: -4158543751681362238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_13
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 256
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61046ccbdaedb7760800000000000000
+      internalID: 7456798445819805718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_14
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 256
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f550c0418af6c970800000000000000
+      internalID: 8774976357022062065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_15
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 256
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ff3fc829cccaec60800000000000000
+      internalID: 7848310464991674352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_16
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 256
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7db2afcdeb73b140800000000000000
+      internalID: 4734263894617537916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_17
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 256
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f4b7e598adf4fe0800000000000000
+      internalID: -1202502291954118787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_18
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 256
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63056829efb01dd20800000000000000
+      internalID: 3301433189847158838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bcc4acc5bf8edee0800000000000000
+      internalID: -1234391236867732296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_20
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 192
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f875328106e0540800000000000000
+      internalID: 4976020295079399198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_21
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 192
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4203e3e647db6fc0800000000000000
+      internalID: -3500467585879440820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_22
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 192
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0fba611bfc239db0800000000000000
+      internalID: -4786432522124083441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_23
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 192
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17efa938395dfcd10800000000000000
+      internalID: 2148170376823897713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_24
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 192
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c65ae82cac42cfa0800000000000000
+      internalID: -5781974669285763387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_25
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 192
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ce6b2c55d2621b40800000000000000
+      internalID: 5409494770939293379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_26
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 192
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d7e65439002b5d40800000000000000
+      internalID: 5574084187706025938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c33caf418f21b70800000000000000
+      internalID: 8868423385236061268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_28
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 128
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26566239c9bcd0400800000000000000
+      internalID: 292113424193054050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_29
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 128
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc17077b1307db00800000000000000
+      internalID: 853154070905953464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_30
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 128
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9b96d86185cdb4d0800000000000000
+      internalID: -3117118207470167141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_31
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 128
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32c40bd87ea07dff0800000000000000
+      internalID: -11528484414272477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_32
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 128
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb47dba0995fef680800000000000000
+      internalID: -8719261790883711813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_33
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 128
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 039a60fce66184cb0800000000000000
+      internalID: -4879625531080398544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_34
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 128
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a6f64b500240fc40800000000000000
+      internalID: 5544003710591891104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_35
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 128
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3d7ed2234ab7dee0800000000000000
+      internalID: -1236314775179330242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb938361c6c95b20800000000000000
+      internalID: 3123746350458706909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_37
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 64
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7334c4a7652312e70800000000000000
+      internalID: 9088600870010766135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_38
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 64
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd3488b342b0ac970800000000000000
+      internalID: 8775839074130346975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_39
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 64
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4157d2ef1b31b490800000000000000
+      internalID: -7732334077082644149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_40
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 64
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637f779a95f6926a0800000000000000
+      internalID: -6473520558482393290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_41
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 64
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4b9a999782b68530800000000000000
+      internalID: 3856966426356783948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_42
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 64
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 360b59b741f6b2c10800000000000000
+      internalID: 2029838190823977059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_43
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 64
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb8977d0bc6b54df0800000000000000
+      internalID: -196550025500190533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_44
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 64
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 182ec347e0b2505d0800000000000000
+      internalID: -3097021827667664255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_45
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 64
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d03f8a7e8a17df40800000000000000
+      internalID: 5753096248232980693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_46
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 64
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9de350609317f2f0800000000000000
+      internalID: -939260486471127652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_47
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 64
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7968f270788126e80800000000000000
+      internalID: -8186954204385933673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb35eeac14517d6e0800000000000000
+      internalID: -1812956952671661125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_49
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 0
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8472d081a34390ab0800000000000000
+      internalID: -5041440883748296888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_50
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d016ea10aa2f1f20800000000000000
+      internalID: 3395479511195062485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_51
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0c0f14511409050800000000000000
+      internalID: 5805211479236985079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_52
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 0
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b21fb623f31bc4d30800000000000000
+      internalID: 4417100219530604843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_53
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 0
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41407f764a6baa550800000000000000
+      internalID: 6172947056499819540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-full-sheet (1)_54
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 0
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c5475feb51ead300800000000000000
+      internalID: 277782112010454469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,55 +1,64 @@
 fileFormatVersion: 2
-guid: 80d945689bbda9246ad216bc43822529
+guid: 8d8325db1d7672a48a8fd2f2576aeedd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3059811679558791125
-    second: Attachment_1646748094_0
+      213: 1008894551756885880
+    second: grim-normalatk_0
   - first:
-      213: -5744306683401895590
-    second: Attachment_1646748094_1
+      213: -7908208594940835142
+    second: grim-normalatk_1
   - first:
-      213: 870528168110022943
-    second: Attachment_1646748094_2
+      213: -4881715645712347257
+    second: grim-normalatk_2
   - first:
-      213: 8741464686540479116
-    second: Attachment_1646748094_3
+      213: -5894106971173896750
+    second: grim-normalatk_3
   - first:
-      213: -530005885250898503
-    second: Attachment_1646748094_4
+      213: -3799209388747800010
+    second: grim-normalatk_4
   - first:
-      213: -326673719506762492
-    second: Attachment_1646748094_5
+      213: -1969363516756755365
+    second: grim-normalatk_5
   - first:
-      213: 8632334726284656113
-    second: Attachment_1646748094_6
+      213: -7977383233340540540
+    second: grim-normalatk_6
   - first:
-      213: 5195694407625228774
-    second: Attachment_1646748094_7
+      213: -4140046401719381343
+    second: grim-normalatk_7
   - first:
-      213: -7431809866377387262
-    second: Attachment_1646748094_8
+      213: -5054444138491142463
+    second: grim-normalatk_8
   - first:
-      213: -4994662016104702069
-    second: Attachment_1646748094_9
+      213: 153037908526686736
+    second: grim-normalatk_9
   - first:
-      213: -197869210927250615
-    second: Attachment_1646748094_10
+      213: 1157402103089575367
+    second: grim-normalatk_10
   - first:
-      213: -6423664658837366957
-    second: Attachment_1646748094_11
+      213: -8757877882682621374
+    second: grim-normalatk_11
   - first:
-      213: -2280047858657402568
-    second: Attachment_1646748094_12
+      213: -5581680563048566803
+    second: grim-normalatk_12
   - first:
-      213: -934336616115873487
-    second: Attachment_1646748094_13
+      213: 3474948357177858747
+    second: grim-normalatk_13
   - first:
-      213: 6957460702612382152
-    second: Attachment_1646748094_14
+      213: 7298679988860568120
+    second: grim-normalatk_14
   - first:
-      213: 542373274494191489
-    second: Attachment_1646748094_15
+      213: -3971206769517936640
+    second: grim-normalatk_15
+  - first:
+      213: 844858720305298250
+    second: grim-normalatk_16
+  - first:
+      213: 7093735713418986239
+    second: grim-normalatk_17
+  - first:
+      213: -6725342218682297651
+    second: grim-normalatk_18
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -94,7 +103,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,10 +122,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -125,10 +134,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,10 +146,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -149,10 +158,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -163,13 +172,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attachment_1646748094_0
+      name: grim-normalatk_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 95.5
-        width: 80
-        height: 95.5
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b209e403d7d5985d0800000000000000
-      internalID: -3059811679558791125
+      spriteID: 87fcb4ddf30500e00800000000000000
+      internalID: 1008894551756885880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_1
+      name: grim-normalatk_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 95.5
-        width: 80
-        height: 95.5
+        x: 92
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,20 +207,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a518dee818f1840b0800000000000000
-      internalID: -5744306683401895590
+      spriteID: aba4cd0be26604290800000000000000
+      internalID: -7908208594940835142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_2
+      name: grim-normalatk_2
       rect:
         serializedVersion: 2
-        x: 160
-        y: 95.5
-        width: 80
-        height: 95.5
+        x: 184
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,20 +228,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f116b23b1ccb41c00800000000000000
-      internalID: 870528168110022943
+      spriteID: 78f49d21c79a04cb0800000000000000
+      internalID: -4881715645712347257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_3
+      name: grim-normalatk_3
       rect:
         serializedVersion: 2
-        x: 240
-        y: 95.5
-        width: 80
-        height: 95.5
+        x: 276
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,20 +249,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8addd171dbef4970800000000000000
-      internalID: 8741464686540479116
+      spriteID: 2ddb60320fce33ea0800000000000000
+      internalID: -5894106971173896750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_4
+      name: grim-normalatk_4
       rect:
         serializedVersion: 2
-        x: 320
-        y: 95.5
-        width: 80
-        height: 95.5
+        x: 368
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,20 +270,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b5f0c8947a05a8f0800000000000000
-      internalID: -530005885250898503
+      spriteID: 632cb54a03f764bc0800000000000000
+      internalID: -3799209388747800010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_5
+      name: grim-normalatk_5
       rect:
         serializedVersion: 2
-        x: 400
-        y: 95.5
-        width: 80
-        height: 95.5
+        x: 460
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,20 +291,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 405085f9bfb677bf0800000000000000
-      internalID: -326673719506762492
+      spriteID: b5c791ec05a6ba4e0800000000000000
+      internalID: -1969363516756755365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_6
+      name: grim-normalatk_6
       rect:
         serializedVersion: 2
-        x: 480
-        y: 95.5
-        width: 80
-        height: 95.5
+        x: 552
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -303,20 +312,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fd377e82b63cc770800000000000000
-      internalID: 8632334726284656113
+      spriteID: 489749b1734aa4190800000000000000
+      internalID: -7977383233340540540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_7
+      name: grim-normalatk_7
       rect:
         serializedVersion: 2
-        x: 560
-        y: 95.5
-        width: 80
-        height: 95.5
+        x: 644
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,20 +333,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e14cf72980da1840800000000000000
-      internalID: 5195694407625228774
+      spriteID: 1a2d1e78bb99b86c0800000000000000
+      internalID: -4140046401719381343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_8
+      name: grim-normalatk_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0.5
-        width: 80
-        height: 95.5
+        x: 736
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -345,20 +354,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 203255c4d48ecd890800000000000000
-      internalID: -7431809866377387262
+      spriteID: 1ce1e2ce5d10bd9b0800000000000000
+      internalID: -5054444138491142463
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_9
+      name: grim-normalatk_9
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0.5
-        width: 80
-        height: 95.5
+        x: 828
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -366,20 +375,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8f51f4fb556faab0800000000000000
-      internalID: -4994662016104702069
+      spriteID: 012e6eeba23bf1200800000000000000
+      internalID: 153037908526686736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_10
+      name: grim-normalatk_10
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0.5
-        width: 80
-        height: 95.5
+        x: 920
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -387,20 +396,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 943c1b24007014df0800000000000000
-      internalID: -197869210927250615
+      spriteID: 7c5b1f0a41bef0010800000000000000
+      internalID: 1157402103089575367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_11
+      name: grim-normalatk_11
       rect:
         serializedVersion: 2
-        x: 240
-        y: 0.5
-        width: 80
-        height: 95.5
+        x: 1012
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -408,20 +417,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35794cdd60f8ad6a0800000000000000
-      internalID: -6423664658837366957
+      spriteID: 242c3788774c57680800000000000000
+      internalID: -8757877882682621374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_12
+      name: grim-normalatk_12
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0.5
-        width: 80
-        height: 95.5
+        x: 1104
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -429,20 +438,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 831e5d18d84ab50e0800000000000000
-      internalID: -2280047858657402568
+      spriteID: defa9c5d913e982b0800000000000000
+      internalID: -5581680563048566803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_13
+      name: grim-normalatk_13
       rect:
         serializedVersion: 2
-        x: 400
-        y: 0.5
-        width: 80
-        height: 95.5
+        x: 1196
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -450,20 +459,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 139d5c74cc19803f0800000000000000
-      internalID: -934336616115873487
+      spriteID: bbad96aae1f793030800000000000000
+      internalID: 3474948357177858747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_14
+      name: grim-normalatk_14
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0.5
-        width: 80
-        height: 95.5
+        x: 1288
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -471,20 +480,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c163f595addd8060800000000000000
-      internalID: 6957460702612382152
+      spriteID: 8324941a7ce1a4560800000000000000
+      internalID: 7298679988860568120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attachment_1646748094_15
+      name: grim-normalatk_15
       rect:
         serializedVersion: 2
-        x: 560
-        y: 0.5
-        width: 80
-        height: 95.5
+        x: 1380
+        y: 0
+        width: 92
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -492,8 +501,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18744e99e95e68700800000000000000
-      internalID: 542373274494191489
+      spriteID: 000c145cb7073e8c0800000000000000
+      internalID: -3971206769517936640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-normalatk_16
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 0
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b3035a78a89bb00800000000000000
+      internalID: 844858720305298250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-normalatk_17
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 0
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff247d01c03027260800000000000000
+      internalID: 7093735713418986239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grim-normalatk_18
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 0
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc2118e62e8caa2a0800000000000000
+      internalID: -6725342218682297651
       vertices: []
       indices: 
       edges: []

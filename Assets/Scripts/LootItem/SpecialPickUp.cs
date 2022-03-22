@@ -10,6 +10,18 @@ public class SpecialPickUp : LootItem
     public PlayerSaveData data { get; set; } = new PlayerSaveData();
     public bool isPickedUp;
     const string PLAYER_KEY = "/player";
+    public static SpecialPickUp instance;
+    public static SpecialPickUp MyInstance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                instance = FindObjectOfType<SpecialPickUp>();
+            }
+            return instance;
+        }
+    }
 
 
     protected override void Awake()
@@ -42,8 +54,8 @@ public class SpecialPickUp : LootItem
         base.PickUp();
         isPickedUp = true;
         lootData.isPickedUp = isPickedUp;
+        // GameEvents.OnSaveInitiated();
         CollectibleManager.Instance.AddSpecialCollectible(lootData.pickUpPoint);
         AudioSetting.Instance.PlaySFX(specialSFX);
-        GameEvents.OnSaveInitiated();
     }
 }

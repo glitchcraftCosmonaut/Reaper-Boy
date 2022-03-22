@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LootItem : Singleton<LootItem>
+public class LootItem : MonoBehaviour
 {
     int pickUpStateID = Animator.StringToHash("PickUp");
     Animator animator;
 
 
 
-    protected override void Awake() 
+    protected virtual void Awake() 
     {
-        base.Awake();
         animator = GetComponent<Animator>();   
     }
 
