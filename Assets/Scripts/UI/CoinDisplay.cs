@@ -13,7 +13,16 @@ public class CoinDisplay : MonoBehaviour
     }
     private void Start()
     {
-        coinText.text = "X " + CollectibleManager.Instance.Coin.ToString();
+        // coinText.text = "X " + CollectibleManager.Instance.Coin.ToString();
+        if(SaveSystem.SaveExists("player"))
+        {
+            coinText.text = "X " + CollectibleManager.Instance.Coin.ToString();
+        }
+        else
+        {
+            CollectibleManager.Instance.ResetScore();
+        }
+
     }
 
     public static void UpdateText(int coin) => coinText.text = "X " + coin.ToString();

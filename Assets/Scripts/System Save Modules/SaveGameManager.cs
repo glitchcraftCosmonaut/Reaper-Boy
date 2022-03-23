@@ -7,7 +7,6 @@ public class SaveGameManager : PersistentSingleton<SaveGameManager>
     // // private Player player;
     // [SerializeField] Player playerPrefab;
     public PlayerSaveData data { get; set; } = new PlayerSaveData();
-    public EnemySaveData enemyData {get; set;} = new EnemySaveData();
     // public HashSet<string> UpgradeStates { get; set; } = new HashSet<string>();
     public HashSet<string> DeathStates { get; set; } = new HashSet<string>();
 
@@ -28,7 +27,7 @@ public class SaveGameManager : PersistentSingleton<SaveGameManager>
         data.MyPlayerData = new PlayerDatas(
             Player.MyInstance.transform.position,Player.MyInstance.stageName, 
             Player.MyInstance.hasDash, Boss_Behaviour.MyInstance.enemyData, Boss_Behaviour.MyInstance.isDeath, Player.MyInstance.hasFireAttack,
-            SpecialPickUp.MyInstance.isPickedUp, SpecialPickUp.MyInstance.lootData
+            SpecialPickUp.MyInstance.isPickedUp, SpecialPickUp.MyInstance.lootData, CollectibleManager.Instance.coin, CollectibleManager.Instance.specialCollectible
             );
     }
     public void LoadPlayer(PlayerSaveData data)
@@ -42,6 +41,9 @@ public class SaveGameManager : PersistentSingleton<SaveGameManager>
         Boss_Behaviour.MyInstance.enemyData.isDeath = data.MyPlayerData.EnemyDeath;
         SpecialPickUp.MyInstance.lootData.isPickedUp = data.MyPlayerData.SpecialPickUp;
         SpecialPickUp.MyInstance.isPickedUp = data.MyPlayerData.SpecialPickUp;
+        CollectibleManager.Instance.coin = data.MyPlayerData.coin;
+        CollectibleManager.Instance.specialCollectible = data.MyPlayerData.coin;
+
         // Boss_Behaviour.MyInstance.isDeath = data.MyPlayerData.EnemyDeathState;
 
     }

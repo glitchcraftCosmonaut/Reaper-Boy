@@ -7,7 +7,6 @@ public class AggressiveWeapon : Weapon
     protected AggressiveWeapon_SO aggressiveWeaponData;
 
     private List<IDamageable> detectedDamageables = new List<IDamageable>();
-    private List<IKnockbackable> detectedKnockbackables = new List<IKnockbackable>();
 
     protected override void Awake()
     {

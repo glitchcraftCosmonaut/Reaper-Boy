@@ -66,7 +66,6 @@ public class Player : Character
     [SerializeField] Transform muzzleTop;
     public Weapon[] weapons;
 
-    bool isTakingDamage;
     bool isInvincible;
     // [SerializeField] float shootCooldownTime = 1f;
 
@@ -215,15 +214,6 @@ public class Player : Character
                 }
             }
         }
-    }
-
-    void StopDamageAnimation()
-    {
-        // this function is called at the end of the Hit animation
-        // and we reset the animation because it doesn't loop otherwise
-        // we can end up stuck in it
-        isTakingDamage = false;
-        StartCoroutine(FlashAfterDamage());
     }
 
     private IEnumerator FlashAfterDamage()

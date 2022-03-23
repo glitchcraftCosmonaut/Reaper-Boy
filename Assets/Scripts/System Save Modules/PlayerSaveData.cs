@@ -22,6 +22,9 @@ public class PlayerDatas
     public HashSet<string> EnemyDeathState { get; set; } = new HashSet<string>();
     // public List<Objects> Objects {get; set;} = new List<Objects>();
 
+    public int coin {get; set;}
+    public int specialCollectible {get; set;}
+
     public bool MyDash {get; set;}
     public bool MyFireAttack {get; set;}
     public float MyX {get; set;}
@@ -33,7 +36,8 @@ public class PlayerDatas
 
 
     public PlayerDatas(Vector3 position,string sceneName, bool dashData, 
-    EnemyBehaviourData enemyBehaviourData, bool enemyDeath, bool fireAttack, bool pickedUp, LootData lootData)
+    EnemyBehaviourData enemyBehaviourData, bool enemyDeath, bool fireAttack, bool pickedUp, LootData lootData,
+    int coin, int specialCollectible)
     {
         // PlayerDashDataName = dashData.name;
         this.MyDash = dashData;
@@ -47,6 +51,8 @@ public class PlayerDatas
         this.EnemyDeath = enemyDeath;
         this.SpecialPickUp = pickedUp;
         this.LootDataName = lootData.name;
+        this.coin = coin;
+        this.specialCollectible = specialCollectible;
 
         // this.EnemyDeathState = enemyDeath;
     }

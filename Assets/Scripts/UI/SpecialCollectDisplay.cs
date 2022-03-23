@@ -14,7 +14,16 @@ public class SpecialCollectDisplay : MonoBehaviour
     }
     private void Start()
     {
-        specialCollectText.text = "X " + CollectibleManager.Instance.SpecialCollectible.ToString();
+        // specialCollectText.text = "X " + CollectibleManager.Instance.SpecialCollectible.ToString();
+        if(SaveSystem.SaveExists("player"))
+        {
+            specialCollectText.text = "X " + CollectibleManager.Instance.SpecialCollectible.ToString();
+        }
+
+        else
+        {
+            CollectibleManager.Instance.ResetScore();
+        }
     }
 
     public static void UpdateText(int special) => specialCollectText.text = "X " + special.ToString();

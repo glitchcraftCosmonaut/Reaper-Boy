@@ -14,15 +14,15 @@ public class Core : MonoBehaviour
         get => GenericNotImplementedError<CollisionSenses>.TryGet(collisionSenses, transform.parent.name);
         private set => collisionSenses = value;
     }
-    public Combat Combat
-    {
-        get => GenericNotImplementedError<Combat>.TryGet(combat, transform.parent.name);
-        private set => combat = value;
-    }
+    // public Combat Combat
+    // {
+    //     get => GenericNotImplementedError<Combat>.TryGet(combat, transform.parent.name);
+    //     private set => combat = value;
+    // }
 
     private Movement movement;
     private CollisionSenses collisionSenses;
-    private Combat combat;
+    // private Combat combat;
 
 
 
@@ -30,13 +30,13 @@ public class Core : MonoBehaviour
     {
         Movement = GetComponentInChildren<Movement>();
         CollisionSenses = GetComponentInChildren<CollisionSenses>();
-        Combat = GetComponentInChildren<Combat>();
+        // Combat = GetComponentInChildren<Combat>();
 
     }
 
     public void LogicUpdate()
     {
         Movement.LogicUpdate();
-        Combat.LogicUpdate();
+        // Combat.LogicUpdate();
     }
 }
