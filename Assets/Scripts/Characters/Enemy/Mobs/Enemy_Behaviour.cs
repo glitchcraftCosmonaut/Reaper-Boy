@@ -5,12 +5,14 @@ public class Enemy_Behaviour : Character, IDamageable
 {
     [SerializeField] AudioData hitSFX;
     [SerializeField] AudioData gruntSFX;
+    [SerializeField] float timer;
     public EnemyBehaviourData enemyData;
     public Transform leftLimit;
     public Transform rightLimit;
     public GameObject hotZone;
     public GameObject triggerArea;
     public string attackAnimName;
+    [HideInInspector] public bool inRange;
     [HideInInspector] public Transform target;
 
 
@@ -28,7 +30,7 @@ public class Enemy_Behaviour : Character, IDamageable
         health.Value = 1;
         SelectTarget();
         lootSpawner = GetComponent<LootSpawner>();
-        intTimer = enemyData.timer;
+        intTimer = timer;
         anim = GetComponent<Animator>();
         sp = GetComponentInChildren<SpriteRenderer>();
         defaultMat2D = GetComponentInChildren<SpriteRenderer>().material;
@@ -40,12 +42,12 @@ public class Enemy_Behaviour : Character, IDamageable
         {
             Move();
         }
-        if(!InsideOfLimits() && !enemyData.inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName(attackAnimName))
+        if(!InsideOfLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName(attackAnimName))
         {
             SelectTarget();
         }
 
-        if(enemyData.inRange)
+        if(inRange)
         {
             EnemyLogic();
 
@@ -92,7 +94,7 @@ public class Enemy_Behaviour : Character, IDamageable
 
     void Attack()
     {
-        enemyData.timer = intTimer; //reset timer when player enter attack range
+        timer = intTimer; //reset timer when player enter attack range
         attackMode = true; // to check if enemy can still attack or not
         anim.SetBool("CanWalk", false);
         anim.SetBool("Attack", true);
@@ -100,11 +102,11 @@ public class Enemy_Behaviour : Character, IDamageable
 
     void Cooldown()
     {
-        enemyData.timer -= Time.deltaTime;
-        if(enemyData.timer <= 0 && cooling && attackMode)
+        timer -= Time.deltaTime;
+        if(timer <= 0 && cooling && attackMode)
         {
             cooling = false;
-            enemyData.timer = intTimer;
+            timer = intTimer;
         }
     }
     void StopAttack()

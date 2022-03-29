@@ -17,7 +17,7 @@ public class TriggerAreaCheck : MonoBehaviour
         {
             gameObject.SetActive(false);
             enemyParent.target = other.transform;
-            enemyParent.enemyData.inRange = true;
+            enemyParent.inRange = true;
             enemyParent.hotZone.SetActive(true);
         }
     }
