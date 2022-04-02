@@ -5012,16 +5012,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneLoader
       objectReference: {fileID: 0}
-    - target: {fileID: 837480879163926462, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7941436781502188751, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
-      propertyPath: playerInput
-      value: 
-      objectReference: {fileID: 11400000, guid: f3636f997641dd9499d1518247566dcd, type: 2}
-    m_RemovedComponents:
-    - {fileID: 837480879163926432, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23f3233eaed0e3c46a085b36c0071e70, type: 3}
 --- !u!1 &1987566965
 GameObject:

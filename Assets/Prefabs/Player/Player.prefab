@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6759230034669395440}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &561655616
 GameObject:
@@ -174,7 +174,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6759230034669395440}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &592816097
 SpriteRenderer:
@@ -623,7 +623,7 @@ GameObject:
   - component: {fileID: 6759230034669395440}
   - component: {fileID: 6759230034669395445}
   - component: {fileID: 6759230034669395446}
-  - component: {fileID: 6759230034669395447}
+  - component: {fileID: 717838210}
   - component: {fileID: 6759230034669395444}
   - component: {fileID: 6759230034669395435}
   - component: {fileID: 6759230035881700412}
@@ -646,10 +646,10 @@ Transform:
   m_LocalPosition: {x: -3.96, y: 1.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 592816096}
   - {fileID: 6759230034675293042}
   - {fileID: 6759230035632835951}
   - {fileID: 503827929}
-  - {fileID: 592816096}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -693,8 +693,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &6759230034669395447
-BoxCollider2D:
+--- !u!70 &717838210
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -706,19 +706,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.058967113, y: -0.17534065}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.0666666, y: 2.1333334}
-    newSize: {x: 2.1333334, y: 2.1333334}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.87401485, y: 1.3068929}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.08502996, y: -0.1729908}
+  m_Size: {x: 0.6700599, y: 1.2756157}
+  m_Direction: 0
 --- !u!114 &6759230034669395444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,7 +735,7 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: 526fa52c5fe50d84d8abea95f9f65a3e, type: 2}
   regenerateEnergy: 1
   energyRegenerateTime: 1
-  energyRegeneratePercent: 0.05
+  energyRegeneratePercent: 0.1
   dashSFX:
     audioClip: {fileID: 8300000, guid: 5b3371c0c81ed00408a317a5c4cdee5a, type: 3}
     volume: 1
@@ -763,7 +753,7 @@ MonoBehaviour:
   - {fileID: 6759230035006392871}
   - {fileID: 6759230035501495939}
   - {fileID: 1877997780}
-  hasDash: 1
+  hasDash: 0
   hasFireAttack: 0
   boxSize: {x: 1, y: 1}
   sceneName:
@@ -839,7 +829,7 @@ Transform:
   - {fileID: 6759230035131325383}
   - {fileID: 6759230034382818427}
   m_Father: {fileID: 6759230034669395440}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6759230034675293043
 MonoBehaviour:
@@ -1392,7 +1382,7 @@ Transform:
   - {fileID: 6759230035501495938}
   - {fileID: 1877997779}
   m_Father: {fileID: 6759230034669395440}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6759230035819698843
 GameObject:

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionImage: {fileID: 837480880455747058}
   fadeTime: 3.5
+  playerInput: {fileID: 11400000, guid: f3636f997641dd9499d1518247566dcd, type: 2}
 --- !u!1 &837480880455747023
 GameObject:
   m_ObjectHideFlags: 0
