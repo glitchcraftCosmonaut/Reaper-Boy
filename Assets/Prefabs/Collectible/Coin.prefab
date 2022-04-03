@@ -107,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3521463524866692782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.094, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3521463525825176083}
@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 3521463525825176081}
   - component: {fileID: 3521463525825176084}
   - component: {fileID: 3521463525825176080}
+  - component: {fileID: 8787704405934491603}
   m_Layer: 11
   m_Name: Coin
   m_TagString: Untagged
@@ -247,3 +248,17 @@ MonoBehaviour:
   coinPickUp:
     audioClip: {fileID: 8300000, guid: 9efda4c269064644e811b117b4664022, type: 3}
     volume: 1
+--- !u!114 &8787704405934491603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3521463525825176085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef97cde651962ef47a73c316e35723de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyGameObject: 0
+  lifeTime: 3

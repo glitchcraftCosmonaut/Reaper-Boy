@@ -304,10 +304,10 @@ MonoBehaviour:
   health: {fileID: 11400000, guid: 06ddb817d3fde494e93bc1dd7a6189a1, type: 2}
   hurtMat: {fileID: 2100000, guid: f314415e63694184dbd0be6696b8e6d7, type: 2}
   hitSFX:
-    audioClip: {fileID: 8300000, guid: 159abd9a6b31b254691fe42cf32f4e77, type: 3}
+    audioClip: {fileID: 8300000, guid: 2efac851cc6c502479aa4241ee1a9d17, type: 3}
     volume: 1
   gruntSFX:
-    audioClip: {fileID: 8300000, guid: 56a0973561f4b1a4a9c0d7e74bb83f34, type: 3}
+    audioClip: {fileID: 8300000, guid: 39c7ab9b216d7414aae51c673fce7df9, type: 3}
     volume: 1
   timer: 2
   enemyData: {fileID: 11400000, guid: b7d1de1fe9829b34da8e6b53dc69e3c9, type: 2}

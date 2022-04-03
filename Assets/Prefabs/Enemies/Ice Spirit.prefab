@@ -389,7 +389,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 159abd9a6b31b254691fe42cf32f4e77, type: 3}
     volume: 1
   gruntSFX:
-    audioClip: {fileID: 8300000, guid: 56a0973561f4b1a4a9c0d7e74bb83f34, type: 3}
+    audioClip: {fileID: 8300000, guid: 0ff5e884debe1694ba0e09168ceb98a9, type: 3}
     volume: 1
   timer: 2
   enemyData: {fileID: 11400000, guid: 9c2ec93f3bc665d41a43da4f0f3f086a, type: 2}
