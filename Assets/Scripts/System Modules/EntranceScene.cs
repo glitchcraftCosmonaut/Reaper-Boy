@@ -12,6 +12,7 @@ public class EntranceScene : MonoBehaviour
         if(PlayerManager.Instance.scenePassword == entrancePassword)
         {
             Player.MyInstance.transform.position = transform.position;
+            Time.timeScale = 1f;
             Debug.Log("Enter!");
         }
         else

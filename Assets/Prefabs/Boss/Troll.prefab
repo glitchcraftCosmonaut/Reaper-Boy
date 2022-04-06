@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9092183816033739752
 Transform:
   m_ObjectHideFlags: 0
@@ -118,9 +118,12 @@ MonoBehaviour:
   deathSFX:
     audioClip: {fileID: 0}
     volume: 0
-  maxHealth: 0
+  maxHealth: 100
   health: {fileID: 11400000, guid: a3e837b00033b7c4781d63a8d20d0baf, type: 2}
   hurtMat: {fileID: 2100000, guid: f314415e63694184dbd0be6696b8e6d7, type: 2}
+  hitSFX:
+    audioClip: {fileID: 0}
+    volume: 0
   enemyData: {fileID: 11400000, guid: 8aa869c77353e034bb0cea3c3b33459c, type: 2}
   target: {fileID: 0}
   tPlayer: {fileID: 0}

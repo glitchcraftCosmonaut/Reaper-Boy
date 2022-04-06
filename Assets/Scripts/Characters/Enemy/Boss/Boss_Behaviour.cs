@@ -87,7 +87,6 @@ public class Boss_Behaviour : Character, IDamageable
     {
         base.Die();
         healthBarCanvas.enabled = false;
-        bossAnim.SetBool("IsDeath", true);
         isDeath = true;
         enemyData.isDeath = isDeath;
         PoolManager.Release(deathVFX, transform.position, Quaternion.identity);

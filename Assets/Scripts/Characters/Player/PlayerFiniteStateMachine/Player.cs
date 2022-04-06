@@ -184,7 +184,7 @@ public class Player : Character
         if(gameObject.activeSelf && !isInvincible)
         {
             StartCoroutine(FlashAfterDamage());
-            base.TakeDamage(enemyData.attackDamage);
+            base.TakeDamage(damage);
             Invincible(true);
             rb.velocity = Vector2.up * 15;
         }  
