@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Big Cultist
   m_EditorClassIdentifier: 
   attackDistance: 2
-  attackDamage: 1
+  attackDamage: 2
   moveSpeed: 3
   isDeath: 0

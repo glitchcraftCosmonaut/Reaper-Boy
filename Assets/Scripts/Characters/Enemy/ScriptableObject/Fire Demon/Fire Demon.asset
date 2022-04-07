@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Fire Demon
   m_EditorClassIdentifier: 
   attackDistance: 2
-  attackDamage: 1
+  attackDamage: 2
   moveSpeed: 3
-  timer: 2
   isDeath: 0
